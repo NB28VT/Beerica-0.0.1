@@ -3,7 +3,6 @@
 <script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
 <div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
 
-
 <script>
 $(function () {
 
@@ -11,207 +10,208 @@ $(function () {
     var data = [
         {
             "hc-key": "us-ma",
-            "value": 45
+            "value": <%=@per_capita_hash["Massachusetts"] %>
         },
         {
             "hc-key": "us-wa",
-            "value": 1
+            "value": <%=@per_capita_hash["Washington"] %>
         },
         {
             "hc-key": "us-ca",
-            "value": 2
+            "value": <%=@per_capita_hash["California"] %>
         },
         {
             "hc-key": "us-or",
-            "value": 3
+            "value": <%=@per_capita_hash["Oregan"] %>
         },
         {
             "hc-key": "us-wi",
-            "value": 4
+            "value": <%=@per_capita_hash["Wisconsin"] %>
         },
         {
             "hc-key": "us-me",
-            "value": 5
+            "value": <%=@per_capita_hash["Maine"] %>
         },
         {
             "hc-key": "us-mi",
-            "value": 6
+            "value": <%=@per_capita_hash["Michigan"] %>
         },
         {
             "hc-key": "us-nv",
-            "value": 7
+            "value": <%=@per_capita_hash["Nevada"] %>
         },
         {
             "hc-key": "us-nm",
-            "value": 8
+            "value": <%=@per_capita_hash["New Mexico"] %>
         },
         {
             "hc-key": "us-co",
-            "value": 9
+            "value": <%=@per_capita_hash["Colorado"] %>
         },
         {
             "hc-key": "us-wy",
-            "value": 10
+            "value": <%=@per_capita_hash["Wyoming"] %>
         },
         {
             "hc-key": "us-ks",
-            "value": 11
+            "value": <%=@per_capita_hash["Kansas"] %>
         },
         {
             "hc-key": "us-ne",
-            "value": 12
+            "value": <%=@per_capita_hash["Nebraska"] %>
         },
         {
             "hc-key": "us-ok",
-            "value": 13
+            "value": <%=@per_capita_hash["Oklahoma"] %>
         },
         {
             "hc-key": "us-mo",
-            "value": 14
+            "value": <%=@per_capita_hash["Missouri"] %>
         },
         {
             "hc-key": "us-il",
-            "value": 15
+            "value": <%=@per_capita_hash["Illinois"] %>
         },
         {
             "hc-key": "us-in",
-            "value": 16
+            "value": <%=@per_capita_hash["Indiana"] %>
         },
         {
             "hc-key": "us-vt",
-            "value": 17
+            "value": <%=@per_capita_hash["Vermont"] %>
         },
         {
             "hc-key": "us-az",
-            "value": 18
+            "value": <%=@per_capita_hash["Arizona"] %>
         },
         {
             "hc-key": "us-ar",
-            "value": 19
+            "value": <%=@per_capita_hash["Arkansas"] %>
         },
         {
             "hc-key": "us-tx",
-            "value": 20
+            "value": <%=@per_capita_hash["Texas"] %>
         },
         {
             "hc-key": "us-ri",
-            "value": 21
+            "value": <%=@per_capita_hash["Rhode Island"] %>
         },
         {
             "hc-key": "us-al",
-            "value": 22
+            "value": <%=@per_capita_hash["Alabama"] %>
         },
         {
             "hc-key": "us-ga",
-            "value": 23
+            "value": <%=@per_capita_hash["Georgia"] %>
         },
         {
             "hc-key": "us-ms",
-            "value": 24
+            "value": <%=@per_capita_hash["Mississippi"] %>
         },
         {
             "hc-key": "us-sc",
-            "value": 25
+            "value": <%=@per_capita_hash["South Carolina"] %>
         },
         {
             "hc-key": "us-nc",
-            "value": 26
+            "value": <%=@per_capita_hash["North Carolina"] %>
         },
         {
             "hc-key": "us-va",
-            "value": 27
+            "value": <%=@per_capita_hash["Virginia"] %>
         },
         {
             "hc-key": "us-ia",
-            "value": 28
+            "value": <%=@per_capita_hash["Iowa"] %>
         },
         {
             "hc-key": "us-md",
-            "value": 29
+            "value": <%=@per_capita_hash["Maryland"] %>
         },
         {
             "hc-key": "us-de",
-            "value": 30
+            "value": <%=@per_capita_hash["Deleware"] %>
         },
         {
             "hc-key": "us-nj",
-            "value": 31
+            "value": <%=@per_capita_hash["New Jersey"] %>
         },
         {
             "hc-key": "us-pa",
-            "value": 32
+            "value": <%=@per_capita_hash["Pennsylvania"] %>
         },
         {
             "hc-key": "us-ny",
-            "value": 33
+            "value": <%=@per_capita_hash["New York"] %>
         },
         {
             "hc-key": "us-id",
-            "value": 34
+            "value": <%=@per_capita_hash["Idaho"] %>
         },
         {
             "hc-key": "us-sd",
-            "value": 35
+            "value": <%=@per_capita_hash["South Dakota"] %>
         },
         {
             "hc-key": "us-ct",
-            "value": 36
+            "value": <%=@per_capita_hash["Connecticut"] %>
         },
         {
             "hc-key": "us-nh",
-            "value": 37
+            "value": <%=@per_capita_hash["New Hampshire"] %>
         },
         {
             "hc-key": "us-ky",
-            "value": 38
+            "value": <%=@per_capita_hash["Kentucky"] %>
         },
         {
             "hc-key": "us-oh",
-            "value": 39
+            "value": <%=@per_capita_hash["Ohio"] %>
         },
         {
             "hc-key": "us-tn",
-            "value": 40
+            "value": <%=@per_capita_hash["Tennessee"] %>
         },
         {
             "hc-key": "us-wv",
-            "value": 41
+            "value": <%=@per_capita_hash["West Virginia"] %>
         },
         {
             "hc-key": "us-dc",
             "value": 42
         },
+
         {
             "hc-key": "us-la",
-            "value": 43
+            "value": <%=@per_capita_hash["Louisiana"] %>
         },
         {
             "hc-key": "us-fl",
-            "value": 44
+            "value": <%=@per_capita_hash["Florida"] %>
         },
         {
             "hc-key": "us-mn",
-            "value": 45
+            "value": <%=@per_capita_hash["Minnesota"] %>
         },
         {
             "hc-key": "us-mt",
-            "value": 46
+            "value": <%=@per_capita_hash["Montana"] %>
         },
         {
             "hc-key": "us-nd",
-            "value": 47
+            "value": <%=@per_capita_hash["North Dakota"] %>
         },
         {
             "hc-key": "us-ut",
-            "value": 48
+            "value": <%=@per_capita_hash["Utah"] %>
         },
         {
             "hc-key": "us-hi",
-            "value": 49
+            "value": <%=@per_capita_hash["Hawaii"] %>
         },
         {
             "hc-key": "us-ak",
-            "value": 50
+            "value": <%=@per_capita_hash["Alaska"] %>
         },
         {
             "value": 51
