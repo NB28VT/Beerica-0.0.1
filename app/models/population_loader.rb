@@ -71,9 +71,10 @@ class PopulationLoader
       state = row[4]
       population = row[5].to_i
 
-      breweries_per_capita = (@state_brewery_hash[state])/population
+      breweries_per_capita = (@state_brewery_hash[state].to_f)/(population/100000).to_f
 
-      hash[state] = breweries_per_capita
+      hash[state] = breweries_per_capita.round(3)
+
     end
     hash
   end
