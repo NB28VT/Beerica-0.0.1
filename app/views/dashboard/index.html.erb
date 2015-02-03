@@ -227,6 +227,7 @@ $(function () {
         }
     ];
 
+
     // Initiate the chart
     $('#container').highcharts('Map', {
 
@@ -244,6 +245,21 @@ $(function () {
                 verticalAlign: 'bottom'
             }
         },
+
+        plotOptions: {
+           series: {
+               cursor: 'pointer',
+               point: {
+                   events: {
+                       click: function (e) {
+                        //  location.href = "/states/" + this.id;
+                         alert(this.value);
+                         window.location = "https://www.google.com/";
+                       }
+                   }
+               }
+           }
+       },
 
         colorAxis: {
             min: 0,
@@ -273,6 +289,7 @@ $(function () {
             enableMouseTracking: true
         }]
     });
+
 });
 
 </script>
