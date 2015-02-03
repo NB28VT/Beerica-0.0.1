@@ -1,15 +1,9 @@
 require 'json'
 require 'csv'
 
-class PopulationLoader
-
+class Map
   def initialize
-    @states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska" , "Nevada", "New Hampshire", "New Jersey","New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
 
-
-
-# NO DATA FOR MINNESOTA!
-  # REFACTOR TO NEW RUBY SYNTAX
   @state_brewery_hash = {"Alabama"=>26,
    "Alaska"=>30,
    "Arizona"=>77,
@@ -60,10 +54,8 @@ class PopulationLoader
    "West Virginia"=>12,
    "Wisconsin"=>163,
    "Wyoming"=>31}
- end
+  end
 
-
-# bug on Minnesota?
   def breweries_per_capita
     hash = {}
 
