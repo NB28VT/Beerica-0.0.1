@@ -2,8 +2,9 @@
 <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
 
-<div id="logo" style="height: 100px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
-  <h1>BEERICA</h1>
+<div id="logo" style="height: 250px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
+  <%= image_tag('beerica-logo.png') %>
+  <h2>Tracking the state of breweries by state</h2>
 </div>
 
 
@@ -253,7 +254,7 @@ $(function () {
             data : data,
             mapData: Highcharts.maps['countries/us/us-all'],
             joinBy: 'hc-key',
-            name: 'Random data',
+            name: 'Breweries Per 100,000',
             states: {
                 hover: {
                     color: '#B02620'
@@ -269,7 +270,7 @@ $(function () {
             data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
             color: 'silver',
             showInLegend: false,
-            enableMouseTracking: false
+            enableMouseTracking: true
         }]
     });
 });
