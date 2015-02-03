@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
 
   def index
-    loader = PopulationLoader.new
-    @per_capita_hash = loader.breweries_per_capita
+    map = Map.new
+    @per_capita_hash = map.breweries_per_capita
   end
 
 end
