@@ -1,6 +1,13 @@
 <script src="http://code.highcharts.com/maps/highmaps.js"></script>
 <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+
+<div id="logo" style="height: 250px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
+  <%= image_tag('beerica-logo.png') %>
+  <h2>Tracking the state of breweries by state</h2>
+</div>
+
+
 <div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
 
 
@@ -224,15 +231,15 @@ $(function () {
     $('#container').highcharts('Map', {
 
         title : {
-            text : 'Highmaps basic demo'
+            text : false
         },
 
         subtitle : {
-            text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/us-all.js">United States of America</a>'
+            text : false
         },
 
         mapNavigation: {
-            enabled: true,
+            enabled: false,
             buttonOptions: {
                 verticalAlign: 'bottom'
             }
@@ -247,10 +254,10 @@ $(function () {
             data : data,
             mapData: Highcharts.maps['countries/us/us-all'],
             joinBy: 'hc-key',
-            name: 'Random data',
+            name: 'Breweries Per 100,000',
             states: {
                 hover: {
-                    color: '#BADA55'
+                    color: '#B02620'
                 }
             },
             dataLabels: {
@@ -263,7 +270,7 @@ $(function () {
             data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
             color: 'silver',
             showInLegend: false,
-            enableMouseTracking: false
+            enableMouseTracking: true
         }]
     });
 });
