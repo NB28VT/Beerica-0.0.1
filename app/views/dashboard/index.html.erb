@@ -1,6 +1,12 @@
 <script src="http://code.highcharts.com/maps/highmaps.js"></script>
 <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
 <script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+
+<div id="logo" style="height: 100px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
+  <h1>BEERICA</h1>
+</div>
+
+
 <div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
 
 
@@ -224,15 +230,15 @@ $(function () {
     $('#container').highcharts('Map', {
 
         title : {
-            text : 'Highmaps basic demo'
+            text : false
         },
 
         subtitle : {
-            text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/us-all.js">United States of America</a>'
+            text : false
         },
 
         mapNavigation: {
-            enabled: true,
+            enabled: false,
             buttonOptions: {
                 verticalAlign: 'bottom'
             }
@@ -250,7 +256,7 @@ $(function () {
             name: 'Random data',
             states: {
                 hover: {
-                    color: '#BADA55'
+                    color: '#B02620'
                 }
             },
             dataLabels: {
