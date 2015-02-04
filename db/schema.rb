@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204202406) do
+ActiveRecord::Schema.define(version: 20150204203828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brewery_table", force: :cascade do |t|
     t.string   "name",               null: false
-    t.integer  "state_id"
-    t.string   "city"
+    t.integer  "state_id",           null: false
+    t.string   "city",               null: false
     t.string   "street_address"
     t.string   "website"
     t.string   "phone"
