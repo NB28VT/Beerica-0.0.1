@@ -24,5 +24,4 @@ class BreweryLoader
     end
     hash
   end
-
 end
