@@ -6,9 +6,9 @@ class StateLoader
 
   def load_states
     @states.each do |state|
-      state = State.new(state)
+      state = State.new(name: state)
       state.save
     end
   end
-
+ 
 end
