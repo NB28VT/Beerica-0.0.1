@@ -10,5 +10,5 @@ class StateLoader
       state.save
     end
   end
-  
+
 end
