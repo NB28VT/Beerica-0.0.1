@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'capybara'
 
   gem 'web-console', '~> 2.0'
   gem 'spring'
