@@ -20,6 +20,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
 
   gem 'web-console', '~> 2.0'
   gem 'spring'

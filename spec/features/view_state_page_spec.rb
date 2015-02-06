@@ -12,12 +12,16 @@ Acceptance criteria:
 "
 ) do
 
-  scenario "A user can click on a state and be brought to a state info page" do
-    visit state_index_path
-
-    click_on "Vermont"
-
-    expect(page).to have_content("Vermont")
+  before(:each) do
+    @state = FactoryGirl.create(:state, name: "Vermont")
   end
-  
+
+  scenario "A user can click on a state and be brought to a state info page" do
+    visit states_path
+
+    click_on @state.name
+
+    expect(page).to have_content(@state.name)
+  end
+
 end
