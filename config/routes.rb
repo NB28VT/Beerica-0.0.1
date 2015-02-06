@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
   resources :dashboard, only: [:index]
-  resources :states, only: [:index, :show]
+  resources :states, only: [:index, :show] do
+    resources :breweries, only: [:index, :show]
+  end
 end

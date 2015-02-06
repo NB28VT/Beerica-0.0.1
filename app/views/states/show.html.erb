@@ -1,9 +1,9 @@
 <%= @state.name %>
 
-<!-- # <% @state.breweries.each do |brewery| %>
-#   <ul>
-#     <li>
-#       <%= brewery.name %>
-#     </li>
-#   </ul>
-# <% end %> -->
+<% @state.breweries.each do |brewery| %>
+  <ul>
+    <li>
+      <%= link_to brewery.name, state_brewery_path(brewery) %>
+    </li>
+  </ul>
+<% end %>

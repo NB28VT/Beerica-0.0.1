@@ -6,7 +6,7 @@ I would like to select a state
 So I can see a list of all the breweries in that state
 
 Acceptance criteria:
-[ ] A user can click on a state and be brought to a state info page
+[x] A user can click on a state and be brought to a state info page
 [ ] The page will include links to brewery pages for each brewery
 [ ] The page includes a Google map for the state, with all brewery locations
 "
@@ -14,6 +14,7 @@ Acceptance criteria:
 
   before(:each) do
     @state = FactoryGirl.create(:state, name: "Vermont")
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
   end
 
   scenario "A user can click on a state and be brought to a state info page" do
@@ -23,5 +24,15 @@ Acceptance criteria:
 
     expect(page).to have_content(@state.name)
   end
+
+  scenario "The page will include links to brewery pages for each brewery" do
+    visit state_path(@state)
+    binding.pry    
+
+    click_on @brewery.name
+
+    expect(page).to have_content(@brewery.website)
+  end
+
 
 end
