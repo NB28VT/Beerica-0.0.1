@@ -20,14 +20,17 @@ Acceptance criteria:
   scenario "A user can click on a state and be brought to a state info page" do
     visit states_path
 
+    save_and_open_page
+
+    binding.pry
+
     click_on @state.name
 
     expect(page).to have_content(@state.name)
   end
 
   scenario "The page will include links to brewery pages for each brewery" do
-    visit state_path(@state)
-    binding.pry    
+    visit state_breweries_path(@state)
 
     click_on @brewery.name
 

@@ -21,6 +21,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'launchy'
 
   gem 'web-console', '~> 2.0'
   gem 'spring'
