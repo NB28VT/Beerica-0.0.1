@@ -1,7 +1,7 @@
 class BreweriesController < ApplicationController
 
   def index
-    @state = State.find(params[:id])
+    @state = State.find(params[:state_id])
     @breweries = @state.breweries
   end
 

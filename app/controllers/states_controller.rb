@@ -4,6 +4,7 @@ class StatesController < ApplicationController
     @states = State.all
   end
 
+  # Remove template
   # def show
   #   @state = State.find(params[:id])
   # end
