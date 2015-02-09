@@ -3,7 +3,7 @@
 <% @state.breweries.each do |brewery| %>
   <ul>
     <li>
-      <%= link_to brewery.name, state_brewery_path(brewery) %>
-    </li>
-  </ul>
+       <%= link_to brewery.name, state_brewery_path(@state, brewery) %>
+     </li>
+   </ul>
 <% end %>
