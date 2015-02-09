@@ -5,10 +5,12 @@ class StateLoader
   end
 
   def load_states
+    loader = BreweryPerStateLoader.new
     @states.each do |state|
-      state = State.new(name: state)
+      per_capita_breweries = loader.num_breweries(state)
+      state = State.new(name: state, breweries_per_capita: per_capita_breweries)
       state.save
     end
   end
-  
+
 end
