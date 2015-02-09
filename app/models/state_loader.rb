@@ -1,3 +1,5 @@
+require 'brewery_per_state_loader'
+
 class StateLoader
 
   def initialize
