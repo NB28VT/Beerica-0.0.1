@@ -1,3 +1,297 @@
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+
+<div id="logo" style="height: 250px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
+  <%= image_tag('beerica-logo.png') %>
+  <h2>Tracking the state of breweries by state</h2>
+</div>
+
+<div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
+
+
+<script>
+
+$(function () {
+
+    // Prepare demo data
+    var data = [
+        {
+            "hc-key": "us-ma",
+            "value": <%=@per_capita_hash["Massachusetts"] %>
+        },
+        {
+            "hc-key": "us-wa",
+            "value": <%=@per_capita_hash["Washington"] %>
+        },
+        {
+            "hc-key": "us-ca",
+            "value": <%=@per_capita_hash["California"] %>
+        },
+        {
+            "hc-key": "us-or",
+            "value": <%=@per_capita_hash["Oregon"] %>
+        },
+        {
+            "hc-key": "us-wi",
+            "value": <%=@per_capita_hash["Wisconsin"] %>
+        },
+        {
+            "hc-key": "us-me",
+            "value": <%=@per_capita_hash["Maine"] %>
+        },
+        {
+            "hc-key": "us-mi",
+            "value": <%=@per_capita_hash["Michigan"] %>
+        },
+        {
+            "hc-key": "us-nv",
+            "value": <%=@per_capita_hash["Nevada"] %>
+        },
+        {
+            "hc-key": "us-nm",
+            "value": <%=@per_capita_hash["New Mexico"] %>
+        },
+        {
+            "hc-key": "us-co",
+            "value": <%=@per_capita_hash["Colorado"] %>
+        },
+        {
+            "hc-key": "us-wy",
+            "value": <%=@per_capita_hash["Wyoming"] %>
+        },
+        {
+            "hc-key": "us-ks",
+            "value": <%=@per_capita_hash["Kansas"] %>
+        },
+        {
+            "hc-key": "us-ne",
+            "value": <%=@per_capita_hash["Nebraska"] %>
+        },
+        {
+            "hc-key": "us-ok",
+            "value": <%=@per_capita_hash["Oklahoma"] %>
+        },
+        {
+            "hc-key": "us-mo",
+            "value": <%=@per_capita_hash["Missouri"] %>
+        },
+        {
+            "hc-key": "us-il",
+            "value": <%=@per_capita_hash["Illinois"] %>
+        },
+        {
+            "hc-key": "us-in",
+            "value": <%=@per_capita_hash["Indiana"] %>
+        },
+        {
+            "hc-key": "us-vt",
+            "value": <%=@per_capita_hash["Vermont"] %>
+        },
+        {
+            "hc-key": "us-az",
+            "value": <%=@per_capita_hash["Arizona"] %>
+        },
+        {
+            "hc-key": "us-ar",
+            "value": <%=@per_capita_hash["Arkansas"] %>
+        },
+        {
+            "hc-key": "us-tx",
+            "value": <%=@per_capita_hash["Texas"] %>
+        },
+        {
+            "hc-key": "us-ri",
+            "value": <%=@per_capita_hash["Rhode Island"] %>
+        },
+        {
+            "hc-key": "us-al",
+            "value": <%=@per_capita_hash["Alabama"] %>
+        },
+        {
+            "hc-key": "us-ga",
+            "value": <%=@per_capita_hash["Georgia"] %>
+        },
+        {
+            "hc-key": "us-ms",
+            "value": <%=@per_capita_hash["Mississippi"] %>
+        },
+        {
+            "hc-key": "us-sc",
+            "value": <%=@per_capita_hash["South Carolina"] %>
+        },
+        {
+            "hc-key": "us-nc",
+            "value": <%=@per_capita_hash["North Carolina"] %>
+        },
+        {
+            "hc-key": "us-va",
+            "value": <%=@per_capita_hash["Virginia"] %>
+        },
+        {
+            "hc-key": "us-ia",
+            "value": <%=@per_capita_hash["Iowa"] %>
+        },
+        {
+            "hc-key": "us-md",
+            "value": <%=@per_capita_hash["Maryland"] %>
+        },
+        {
+            "hc-key": "us-de",
+            "value": <%=@per_capita_hash["Delaware"] %>
+        },
+        {
+            "hc-key": "us-nj",
+            "value": <%=@per_capita_hash["New Jersey"] %>
+        },
+        {
+            "hc-key": "us-pa",
+            "value": <%=@per_capita_hash["Pennsylvania"] %>
+        },
+        {
+            "hc-key": "us-ny",
+            "value": <%=@per_capita_hash["New York"] %>
+        },
+        {
+            "hc-key": "us-id",
+            "value": <%=@per_capita_hash["Idaho"] %>
+        },
+        {
+            "hc-key": "us-sd",
+            "value": <%=@per_capita_hash["South Dakota"] %>
+        },
+        {
+            "hc-key": "us-ct",
+            "value": <%=@per_capita_hash["Connecticut"] %>
+        },
+        {
+            "hc-key": "us-nh",
+            "value": <%=@per_capita_hash["New Hampshire"] %>
+        },
+        {
+            "hc-key": "us-ky",
+            "value": <%=@per_capita_hash["Kentucky"] %>
+        },
+        {
+            "hc-key": "us-oh",
+            "value": <%=@per_capita_hash["Ohio"] %>
+        },
+        {
+            "hc-key": "us-tn",
+            "value": <%=@per_capita_hash["Tennessee"] %>
+        },
+        {
+            "hc-key": "us-wv",
+            "value": <%=@per_capita_hash["West Virginia"] %>
+        },
+        {
+            "hc-key": "us-dc",
+            "value": 0.1
+        },
+
+        {
+            "hc-key": "us-la",
+            "value": <%=@per_capita_hash["Louisiana"] %>
+        },
+        {
+            "hc-key": "us-fl",
+            "value": <%=@per_capita_hash["Florida"] %>
+        },
+        {
+            "hc-key": "us-mn",
+            "value": <%=@per_capita_hash["Minnesota"] %>
+        },
+        {
+            "hc-key": "us-mt",
+            "value": <%=@per_capita_hash["Montana"] %>
+        },
+        {
+            "hc-key": "us-nd",
+            "value": <%=@per_capita_hash["North Dakota"] %>
+        },
+        {
+            "hc-key": "us-ut",
+            "value": <%=@per_capita_hash["Utah"] %>
+        },
+        {
+            "hc-key": "us-hi",
+            "value": <%=@per_capita_hash["Hawaii"] %>
+        },
+        {
+            "hc-key": "us-ak",
+            "value": <%=@per_capita_hash["Alaska"] %>
+        },
+        {
+            "value": 51
+        }
+    ];
+
+
+    // Initiate the chart
+    $('#container').highcharts('Map', {
+
+        title : {
+            text : false
+        },
+
+        subtitle : {
+            text : false
+        },
+
+        mapNavigation: {
+            enabled: false,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        plotOptions: {
+           series: {
+               cursor: 'pointer',
+               point: {
+                   events: {
+                       click: function (e) {
+                        //  location.href = "/states/" + this.id;
+                         alert(this.value);
+                         window.location = "https://www.google.com/";
+                       }
+                   }
+               }
+           }
+       },
+
+        colorAxis: {
+            min: 0,
+            max: 10
+        },
+
+        series : [{
+            data : data,
+            mapData: Highcharts.maps['countries/us/us-all'],
+            joinBy: 'hc-key',
+            name: 'Breweries Per 100,000',
+            states: {
+                hover: {
+                    color: '#B02620'
+                }
+            },
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }, {
+            name: 'Separators',
+            type: 'mapline',
+            data: Highcharts.geojson(Highcharts.maps['countries/us/us-all'], 'mapline'),
+            color: 'silver',
+            showInLegend: false,
+            enableMouseTracking: true
+        }]
+    });
+
+});
+
+</script>
 <% @states.each do |state| %>
   <ul>
     <li>
