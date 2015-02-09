@@ -18,7 +18,8 @@ $(function () {
     var data = [
         {
             "hc-key": "us-ma",
-            "value": <%=@per_capita_hash["Massachusetts"] %>
+            "value": <%=@per_capita_hash["Massachusetts"] %>,
+            "link": <%= 7 %>
         },
         {
             "hc-key": "us-wa",
@@ -251,9 +252,7 @@ $(function () {
                point: {
                    events: {
                        click: function (e) {
-                        //  location.href = "/states/" + this.id;
-                         alert(this.value);
-                         window.location = "https://www.google.com/";
+                        location.href = "/states/" + this.link + "/breweries/";
                        }
                    }
                }
