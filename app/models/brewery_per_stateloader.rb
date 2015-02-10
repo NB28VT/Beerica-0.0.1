@@ -1,3 +1,6 @@
+require 'json'
+require 'csv'
+
 class BreweryPerStateLoader
   attr_reader :brewery_db
 
@@ -7,21 +10,20 @@ class BreweryPerStateLoader
     @brewery_db = BreweryDB::Client.new do |config|
       config.api_key = ENV['BREWERY_DB_API_TOKEN']
     end
-
-    # Redundant, may be able to eliminate
-    # @states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska" , "Nevada", "New Hampshire", "New Jersey","New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
   end
 
-  def num_breweries(state)
-    @brewery_db.locations.all(region: state ).count
+  def breweries_per_capita
+    # Initialize brewery per capita hash
+    per_capita_hash = {}
+    # Reads from CSV
+    brewery_data = CSV.foreach('state_population_data.csv', headers: true) do |row|
+      state = row[4]
+      population = row[5].to_i
+      # Calculates breweries per capita
+      breweries_in_state = @brewery_db.locations.all(region: state ).count
+      breweries_per_capita = (breweries_in_state.to_f)/(population/100000).to_f
+      per_capita_hash[state] = breweries_per_capita.round(3)
+    end
+    per_capita_hash
   end
-
-  # ELIMINATE?
-  # def build_state_hash
-  #   hash = {}
-  #   @states.each do |state|
-  #     hash[state] = num_breweries(state)
-  #   end
-  #   hash
-  # end
 end

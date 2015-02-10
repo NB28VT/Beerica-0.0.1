@@ -1,4 +1,4 @@
-require 'brewery_per_state_loader'
+require_relative 'brewery_per_stateloader.rb'
 
 class StateLoader
 

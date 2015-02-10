@@ -66,7 +66,6 @@ class Map
       breweries_per_capita = (@state_brewery_hash[state].to_f)/(population/100000).to_f
 
       hash[state] = breweries_per_capita.round(3)
-
     end
     hash
   end
