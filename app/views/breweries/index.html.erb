@@ -21,11 +21,39 @@
 <script type="text/javascript">
   function initialize() {
     var mapOptions = {
-      center: { lat: -34.397, lng: 150.644},
-      zoom: 8
+      center: { lat: 44.558803, lng: -72.577841},
+      zoom: 7
     };
     var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
   }
+
+  var geocoder = new google.maps.Geocoder();
+
+     geocoder.geocode({'address': 'RU'}, function (results, status) {
+        var ne = results[0].geometry.viewport.getNorthEast();
+        var sw = results[0].geometry.viewport.getSouthWest();
+
+        map.fitBounds(results[0].geometry.viewport);
+
+        var boundingBoxPoints = [
+           ne, new google.maps.LatLng(ne.lat(), sw.lng()),
+           sw, new google.maps.LatLng(sw.lat(), ne.lng()), ne
+        ];
+
+        var boundingBox = new google.maps.Polyline({
+           path: boundingBoxPoints,
+           strokeColor: '#FF0000',
+           strokeOpacity: 1.0,
+           strokeWeight: 2
+        });
+
+        boundingBox.setMap(map);
+     }); 
+
+
+
+
+
   google.maps.event.addDomListener(window, 'load', initialize);
 </script>
