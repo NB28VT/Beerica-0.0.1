@@ -1,3 +1,5 @@
+require_relative 'brewery_per_stateloader.rb'
+
 class StateLoader
 
   def initialize
@@ -5,10 +7,11 @@ class StateLoader
   end
 
   def load_states
+    loader = BreweryPerStateLoader.new
     @states.each do |state|
-      state = State.new(name: state)
+      per_capita_breweries = loader.load_breweries_per_capita(state)
+      state = State.new(name: state, breweries_per_capita: per_capita_breweries)
       state.save
     end
   end
-  
 end
