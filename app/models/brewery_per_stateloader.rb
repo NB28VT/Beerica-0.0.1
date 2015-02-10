@@ -10,6 +10,8 @@ class BreweryPerStateLoader
     @brewery_db = BreweryDB::Client.new do |config|
       config.api_key = ENV['BREWERY_DB_API_TOKEN']
     end
+
+    @per_capita_hash = breweries_per_capita
   end
 
   def breweries_per_capita
@@ -26,4 +28,17 @@ class BreweryPerStateLoader
     end
     per_capita_hash
   end
+
+  # Helper method for loading breweries for each state. Called in state loader
+  def load_breweries_per_capita(state)
+    @per_capita_hash[state]
+  end
+
+
+
+
+
+
+
+
 end
