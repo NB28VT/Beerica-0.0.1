@@ -18,209 +18,259 @@ $(function () {
     var data = [
         {
             "hc-key": "us-ma",
-            "value": <%=@per_capita_hash["Massachusetts"] %>,
-            "link": <%= 7 %>
+            "value": <%=@states.where(name: "Massachusetts").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Massachusetts").first.id %>
         },
         {
             "hc-key": "us-wa",
-            "value": <%=@per_capita_hash["Washington"] %>
+            "value": <%=@states.where(name: "Washington").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Washington").first.id %>
         },
         {
             "hc-key": "us-ca",
-            "value": <%=@per_capita_hash["California"] %>
+            "value": <%=@states.where(name: "California").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "California").first.id %>
         },
         {
             "hc-key": "us-or",
-            "value": <%=@per_capita_hash["Oregon"] %>
+            "value": <%=@states.where(name: "Oregon").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Oregon").first.id %>
         },
         {
             "hc-key": "us-wi",
-            "value": <%=@per_capita_hash["Wisconsin"] %>
+            "value": <%=@states.where(name: "Wisconsin").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Wisconsin").first.id %>
         },
         {
             "hc-key": "us-me",
-            "value": <%=@per_capita_hash["Maine"] %>
+            "value": <%=@states.where(name: "Maine").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Maine").first.id %>
         },
         {
             "hc-key": "us-mi",
-            "value": <%=@per_capita_hash["Michigan"] %>
+            "value": <%=@states.where(name: "Michigan").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Michigan").first.id %>
         },
         {
             "hc-key": "us-nv",
-            "value": <%=@per_capita_hash["Nevada"] %>
+            "value": <%=@states.where(name: "Nevada").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Nevada").first.id %>
         },
         {
             "hc-key": "us-nm",
-            "value": <%=@per_capita_hash["New Mexico"] %>
+            "value": <%=@states.where(name: "New Mexico").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "New Mexico").first.id %>
         },
         {
             "hc-key": "us-co",
-            "value": <%=@per_capita_hash["Colorado"] %>
+            "value": <%=@states.where(name: "Colorado").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Colorado").first.id %>
         },
         {
             "hc-key": "us-wy",
-            "value": <%=@per_capita_hash["Wyoming"] %>
+            "value": <%=@states.where(name: "Wyoming").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Wyoming").first.id %>
         },
         {
             "hc-key": "us-ks",
-            "value": <%=@per_capita_hash["Kansas"] %>
+            "value": <%=@states.where(name: "Kansas").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Kansas").first.id %>
         },
         {
             "hc-key": "us-ne",
-            "value": <%=@per_capita_hash["Nebraska"] %>
+            "value": <%=@states.where(name: "Nebraska").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Nebraska").first.id %>
         },
         {
             "hc-key": "us-ok",
-            "value": <%=@per_capita_hash["Oklahoma"] %>
+            "value": <%=@states.where(name: "Oklahoma").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Oklahoma").first.id %>
         },
         {
             "hc-key": "us-mo",
-            "value": <%=@per_capita_hash["Missouri"] %>
+            "value": <%=@states.where(name: "Missouri").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Missouri").first.id %>
         },
         {
             "hc-key": "us-il",
-            "value": <%=@per_capita_hash["Illinois"] %>
+            "value": <%=@states.where(name: "Illinois").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Illinois").first.id %>
         },
         {
             "hc-key": "us-in",
-            "value": <%=@per_capita_hash["Indiana"] %>
+            "value": <%=@states.where(name: "Indiana").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Indiana").first.id %>
         },
         {
             "hc-key": "us-vt",
-            "value": <%=@per_capita_hash["Vermont"] %>
+            "value": <%=@states.where(name: "Vermont").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Vermont").first.id %>
         },
         {
             "hc-key": "us-az",
-            "value": <%=@per_capita_hash["Arizona"] %>
+            "value": <%=@states.where(name: "Arizona").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Arizona").first.id %>
         },
         {
             "hc-key": "us-ar",
-            "value": <%=@per_capita_hash["Arkansas"] %>
+            "value": <%=@states.where(name: "Arkansas").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Arkansas").first.id %>
         },
         {
             "hc-key": "us-tx",
-            "value": <%=@per_capita_hash["Texas"] %>
+            "value": <%=@states.where(name: "Texas").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Texas").first.id %>
         },
         {
             "hc-key": "us-ri",
-            "value": <%=@per_capita_hash["Rhode Island"] %>
+            "value": <%=@states.where(name: "Rhode Island").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Rhode Island").first.id %>
         },
         {
             "hc-key": "us-al",
-            "value": <%=@per_capita_hash["Alabama"] %>
+            "value": <%=@states.where(name: "Alabama").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Alabama").first.id %>
         },
         {
             "hc-key": "us-ga",
-            "value": <%=@per_capita_hash["Georgia"] %>
+            "value": <%=@states.where(name: "Georgia").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Georgia").first.id %>
         },
         {
             "hc-key": "us-ms",
-            "value": <%=@per_capita_hash["Mississippi"] %>
+            "value": <%=@states.where(name: "Mississippi").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Mississippi").first.id %>
         },
         {
             "hc-key": "us-sc",
-            "value": <%=@per_capita_hash["South Carolina"] %>
+            "value": <%=@states.where(name: "South Carolina").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "South Carolina").first.id %>
         },
         {
             "hc-key": "us-nc",
-            "value": <%=@per_capita_hash["North Carolina"] %>
+            "value": <%=@states.where(name: "North Carolina").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "North Carolina").first.id %>
         },
         {
             "hc-key": "us-va",
-            "value": <%=@per_capita_hash["Virginia"] %>
+            "value": <%=@states.where(name: "Virginia").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Virginia").first.id %>
         },
         {
             "hc-key": "us-ia",
-            "value": <%=@per_capita_hash["Iowa"] %>
+            "value": <%=@states.where(name: "Iowa").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Iowa").first.id %>
         },
         {
             "hc-key": "us-md",
-            "value": <%=@per_capita_hash["Maryland"] %>
+            "value": <%=@states.where(name: "Maryland").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Maryland").first.id %>
         },
         {
             "hc-key": "us-de",
-            "value": <%=@per_capita_hash["Delaware"] %>
+            "value": <%=@states.where(name: "Delaware").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Delaware").first.id %>
         },
         {
             "hc-key": "us-nj",
-            "value": <%=@per_capita_hash["New Jersey"] %>
+            "value": <%=@states.where(name: "New Jersey").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "New Jersey").first.id %>
         },
         {
             "hc-key": "us-pa",
-            "value": <%=@per_capita_hash["Pennsylvania"] %>
+            "value": <%=@states.where(name: "Pennsylvania").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Pennsylvania").first.id %>
         },
         {
             "hc-key": "us-ny",
-            "value": <%=@per_capita_hash["New York"] %>
+            "value": <%=@states.where(name: "New York").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "New York").first.id %>
         },
         {
             "hc-key": "us-id",
-            "value": <%=@per_capita_hash["Idaho"] %>
+            "value": <%=@states.where(name: "Idaho").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Idaho").first.id %>
         },
         {
             "hc-key": "us-sd",
-            "value": <%=@per_capita_hash["South Dakota"] %>
+            "value": <%=@states.where(name: "South Dakota").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "South Dakota").first.id %>
         },
         {
             "hc-key": "us-ct",
-            "value": <%=@per_capita_hash["Connecticut"] %>
+            "value": <%=@states.where(name: "Connecticut").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Connecticut").first.id %>
         },
         {
             "hc-key": "us-nh",
-            "value": <%=@per_capita_hash["New Hampshire"] %>
+            "value": <%=@states.where(name: "New Hampshire").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "New Hampshire").first.id %>
         },
         {
             "hc-key": "us-ky",
-            "value": <%=@per_capita_hash["Kentucky"] %>
+            "value": <%=@states.where(name: "Kentucky").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Kentucky").first.id %>
         },
         {
             "hc-key": "us-oh",
-            "value": <%=@per_capita_hash["Ohio"] %>
+            "value": <%=@states.where(name: "Ohio").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Ohio").first.id %>
         },
         {
             "hc-key": "us-tn",
-            "value": <%=@per_capita_hash["Tennessee"] %>
+            "value": <%=@states.where(name: "Tennessee").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Tennessee").first.id %>
         },
         {
             "hc-key": "us-wv",
-            "value": <%=@per_capita_hash["West Virginia"] %>
+            "value": <%=@states.where(name: "West Virginia").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "West Virginia").first.id %>
         },
         {
             "hc-key": "us-dc",
-            "value": 0.1
+            "value": <%=@states.where(name: "District of Columbia").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "District of Columbia").first.id %>
         },
 
         {
             "hc-key": "us-la",
-            "value": <%=@per_capita_hash["Louisiana"] %>
+            "value": <%=@states.where(name: "Louisiana").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Louisiana").first.id %>
         },
         {
             "hc-key": "us-fl",
-            "value": <%=@per_capita_hash["Florida"] %>
+            "value": <%=@states.where(name: "Florida").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Florida").first.id %>
         },
         {
             "hc-key": "us-mn",
-            "value": <%=@per_capita_hash["Minnesota"] %>
+            "value": <%=@states.where(name: "Minnesota").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Minnesota").first.id %>
         },
         {
             "hc-key": "us-mt",
-            "value": <%=@per_capita_hash["Montana"] %>
+            "value": <%=@states.where(name: "Montana").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Montana").first.id %>
         },
         {
             "hc-key": "us-nd",
-            "value": <%=@per_capita_hash["North Dakota"] %>
+            "value": <%=@states.where(name: "North Dakota").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "North Dakota").first.id %>
         },
         {
             "hc-key": "us-ut",
-            "value": <%=@per_capita_hash["Utah"] %>
+            "value": <%=@states.where(name: "Utah").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Utah").first.id %>
         },
         {
             "hc-key": "us-hi",
-            "value": <%=@per_capita_hash["Hawaii"] %>
+            "value": <%=@states.where(name: "Hawaii").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Hawaii").first.id %>
         },
         {
             "hc-key": "us-ak",
-            "value": <%=@per_capita_hash["Alaska"] %>
+            "value": <%=@states.where(name: "Alaska").first.breweries_per_capita %>,
+            "link": <%=@states.where(name: "Alaska").first.id %>
         },
         {
             "value": 51
@@ -291,10 +341,3 @@ $(function () {
 });
 
 </script>
-<% @states.each do |state| %>
-  <ul>
-    <li>
-      <%= link_to state.name, state_breweries_path(state.id) %>
-    </li>
-  </ul>
-<% end %>
