@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'dotenv'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
