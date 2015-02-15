@@ -35,8 +35,8 @@ class StateBrewerySeeder
         street_address: street_address,
         website: website,
         phone: phone,
-        hours_of_operation: hours_of_operation
-        latitude: latitude
+        hours_of_operation: hours_of_operation,
+        latitude: latitude,
         longitude: longitude
         )
       end
