@@ -24,6 +24,8 @@ class StateBrewerySeeder
        website = brewery[:website]
        phone = brewery[:phone]
        hours_of_operation = brewery[:hours_of_operation]
+       latitude = brewery[:latitude]
+       longitude = brewery[:longitude]
 
       # IN THE FUTURE: FIND OR INITIALIZE?
        Brewery.create(
@@ -33,7 +35,9 @@ class StateBrewerySeeder
         street_address: street_address,
         website: website,
         phone: phone,
-        hours_of_operation: hours_of_operation
+        hours_of_operation: hours_of_operation,
+        latitude: latitude,
+        longitude: longitude
         )
       end
     end
