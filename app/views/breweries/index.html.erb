@@ -33,7 +33,7 @@
   }
 
   function codeAddress() {
-  var state = "Vermont";
+  var state = " <%= @state.name %> ";
   geocoder.geocode( { 'address': state}, function(results, status) {
 
     console.log(results);
