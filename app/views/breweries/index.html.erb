@@ -26,7 +26,7 @@
   codeAddress();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var mapOptions = {
-    zoom: 8,
+    zoom: 6,
     center: latlng
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -39,10 +39,24 @@
   var ne = results[0].geometry.viewport.getNorthEast();
   var sw = results[0].geometry.viewport.getSouthWest();
 
-  map.fitBounds(results[0].geometry.viewport);               
+  map.fitBounds(results[0].geometry.viewport);
+
+  var boundingBoxPoints = [
+            ne, new google.maps.LatLng(ne.lat(), sw.lng()),
+            sw, new google.maps.LatLng(sw.lat(), ne.lng()), ne
+         ];
+
+   var boundingBox = new google.maps.Polyline({
+      path: boundingBoxPoints,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+   });
+
+   boundingBox.setMap(map);
 
 
-    console.log(results);
+  console.log(results);
 
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
