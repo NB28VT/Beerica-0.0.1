@@ -36,6 +36,12 @@
   var state = " <%= @state.name %> ";
   geocoder.geocode( { 'address': state}, function(results, status) {
 
+  var ne = results[0].geometry.viewport.getNorthEast();
+  var sw = results[0].geometry.viewport.getSouthWest();
+
+  map.fitBounds(results[0].geometry.viewport);               
+
+
     console.log(results);
 
     if (status == google.maps.GeocoderStatus.OK) {
