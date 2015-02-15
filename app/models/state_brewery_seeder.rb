@@ -24,6 +24,7 @@ class StateBrewerySeeder
        website = brewery[:website]
        phone = brewery[:phone]
        hours_of_operation = brewery[:hours_of_operation]
+    
 
       # IN THE FUTURE: FIND OR INITIALIZE?
        Brewery.create(
