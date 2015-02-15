@@ -26,17 +26,21 @@
   codeAddress();
   var latlng = new google.maps.LatLng(-34.397, 150.644);
   var mapOptions = {
-    zoom: 8,
+    zoom: 6,
     center: latlng
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   }
 
   function codeAddress() {
-  var state = " <%= @state.name %> ";
-  geocoder.geocode( { 'address': state}, function(results, status) {
+    var state = " <%= @state.name %> ";
+    geocoder.geocode( { 'address': state}, function(results, status) {
 
-    console.log(results);
+    var ne = results[0].geometry.viewport.getNorthEast();
+    var sw = results[0].geometry.viewport.getSouthWest();
+
+    var bounds = new google.maps.LatLngBounds(sw, ne);
+    map.setCenter(bounds.getCenter());
 
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
