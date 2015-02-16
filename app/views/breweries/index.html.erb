@@ -42,27 +42,19 @@
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.setCenter(bounds.getCenter());
   });
-  }
 
-  // PROBLEM: apostrophes creating unescaped string problems
-
-  var locations = <%= raw @brewery_location_array.as_json %>;
+  var markers = <%= raw @brewery_location_array.as_json %>;
   var marker, i;
-
-  for (var i = 0; i < locations.length; i++) {
-     var marker = new google.maps.Marker({
-       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-       map: map
-     });
-
-     google.maps.event.addListener(marker, 'click', (function(marker, i) {
-       return function() {
-         infowindow.setContent(locations[i][0]);
-         infowindow.open(map, marker);
-       }
-     })(marker, i));
-   }
-
+  for( i = 0; i < markers.length; i++ ) {
+    var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+    // bounds.extend(position);
+    marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: markers[i][0]
+    });
+  }
+}
 
 
   function loadScript() {
