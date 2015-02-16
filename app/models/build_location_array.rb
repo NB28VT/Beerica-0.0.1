@@ -6,7 +6,7 @@ class BuildLocationArray
     breweries.each do |brewery|
       brewery_array = []
       brewery_array.push(
-        brewery.name,
+        brewery.name.gsub("'", %q(\\\')),
         brewery.latitude,
         brewery.longitude
       )

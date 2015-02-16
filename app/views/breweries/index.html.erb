@@ -43,9 +43,10 @@
     map.setCenter(bounds.getCenter());
   });
 
-  // NEED TO BUILD ARRAY OF LOCATIONS HERE
+  // PROBLEM: apostrophes creating unescaped string problems
 
-  var locations = <%=  @brewery_location_array %>;
+  var locations = <%= raw @brewery_location_array %>;
+  console.log(locations);
   var marker, i;
 
   for (i = 0; i < locations.length; i++) {
