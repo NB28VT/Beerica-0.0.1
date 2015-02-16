@@ -9,7 +9,6 @@ class BreweriesController < ApplicationController
     @breweries = @state.breweries
     location_builder = BuildLocationArray.new
     @brewery_location_array = location_builder.build_locations(@breweries)
-    binding.pry
   end
 
   def show
