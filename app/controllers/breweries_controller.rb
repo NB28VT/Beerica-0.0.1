@@ -8,7 +8,7 @@ class BreweriesController < ApplicationController
     @state = State.find(params[:state_id])
     @breweries = @state.breweries
     location_builder = BuildLocationArray.new
-    @brewery_location_array = location_builder.build_locations(@breweries)
+    @brewery_location_array = location_builder.build_locations(@breweries).to_json
   end
 
   def show
