@@ -42,6 +42,17 @@
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.setCenter(bounds.getCenter());
   });
+
+  // NEED TO BUILD ARRAY OF LOCATIONS HERE
+
+  var locations = <%=  @brewery_location_array %>;
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    });
   }
 
   function loadScript() {
