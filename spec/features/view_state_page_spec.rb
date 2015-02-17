@@ -7,22 +7,19 @@ So I can see a list of all the breweries in that state
 
 Acceptance criteria:
 [x] A user can click on a state and be brought to a state info page
-[ ] The page will include links to brewery pages for each brewery
-[ ] The page includes a Google map for the state, with all brewery locations
+[x] The page will include links to brewery pages for each brewery
+[x] The page includes a Google map for the state, with all brewery locations
 "
 ) do
-
-  before(:each) do
-    @state = FactoryGirl.create(:state, name: "Vermont")
-    @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
-  end
 
   scenario "A user can click on a state and be brought to a state info page" do
     visit states_path
 
-    click_on @state.name
+    save_and_open_page
 
-    expect(page).to have_content(@state.name)
+    click_on "highcharts-name-vermont highcharts-key-us-vt"
+
+    expect(page).to have_content("Vermont")
   end
 
   scenario "The page will include links to brewery pages for each brewery" do
