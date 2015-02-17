@@ -8,7 +8,8 @@ class BuildLocationArray
       brewery_array.push(
         brewery.name.gsub("'", %q(\\\')),
         brewery.latitude,
-        brewery.longitude
+        brewery.longitude,
+        "/states/#{brewery.state.id}/breweries/#{brewery.id}"
       )
       location_array << brewery_array
     end
