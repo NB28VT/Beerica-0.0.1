@@ -3,7 +3,6 @@
   <div id="map-canvas"></div>
 </div>
 
-
 <%= @state.name %>
 
 <% @state.breweries.each do |brewery| %>
@@ -28,10 +27,8 @@
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-
   var locations = <%= raw @brewery_location_array.as_json %>;
   var infowindow = new google.maps.InfoWindow();
-
 
    for (var i = 0; i < locations.length; i++) {
        var marker = new google.maps.Marker({
@@ -41,11 +38,11 @@
        });
 
        google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-           return function() {
-             infowindow.setContent(locations[i][0]);
-             infowindow.open(map, marker);
-           }
-         })(marker, i));
+         return function() {
+           infowindow.setContent(locations[i][0]);
+           infowindow.open(map, marker);
+         }
+       })(marker, i));
 
       google.maps.event.addListener(marker, 'click', function() {
         window.location.href = this.url;
@@ -63,12 +60,6 @@
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.setCenter(bounds.getCenter());
   });
-
-  // google.maps.event.addListener(marker, 'click', function() {
-  //   window.location.href = this.url;
-  // });
-
-
   }
 
   function loadScript() {
