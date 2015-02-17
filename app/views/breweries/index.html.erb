@@ -3,7 +3,6 @@
   <div id="map-canvas"></div>
 </div>
 
-
 <%= @state.name %>
 
 <% @state.breweries.each do |brewery| %>
@@ -14,13 +13,10 @@
    </ul>
 <% end %>
 
-
-<script type="text/javascript"
-  src= <%= @map_api_call %> >
-</script>
-<script type="text/javascript">
+<script type="text/javascript" >
   var geocoder;
   var map;
+
   function initialize() {
   geocoder = new google.maps.Geocoder();
   codeAddress();
@@ -30,6 +26,28 @@
     center: latlng
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  var locations = <%= raw @brewery_location_array.as_json %>;
+  var infowindow = new google.maps.InfoWindow();
+
+   for (var i = 0; i < locations.length; i++) {
+       var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         url: locations[i][3]
+       });
+
+       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+         return function() {
+           infowindow.setContent(locations[i][0]);
+           infowindow.open(map, marker);
+         }
+       })(marker, i));
+
+      google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = this.url;
+      });
+    }
   }
 
   function codeAddress() {
@@ -41,16 +59,6 @@
 
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.setCenter(bounds.getCenter());
-
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-    } else {
-      alert("Geocode was not successful for the following reason: " + status);
-    }
   });
   }
 
