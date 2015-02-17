@@ -17,6 +17,7 @@
 <script type="text/javascript" >
   var geocoder;
   var map;
+
   function initialize() {
   geocoder = new google.maps.Geocoder();
   codeAddress();
@@ -26,6 +27,19 @@
     center: latlng
   }
   map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+  var locations = <%= raw @brewery_location_array.as_json %>;
+
+   for (var i = 0; i < locations.length; i++) {
+       var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map
+       });
+    }
+
+
+
   }
 
   function codeAddress() {
@@ -39,24 +53,7 @@
     map.setCenter(bounds.getCenter());
   });
 
-    var locations = <%= raw @brewery_location_array.as_json %>;
 
-    var infowindow = new google.maps.InfoWindow();
-
-     var marker, i;
-
-     for (i = 0; i < locations.length; i++) {
-       marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-         return function() {
-           infowindow.setContent(locations[i][0]);
-           infowindow.open(map, marker);
-         }
-       })(marker, i));}
   }
 
   function loadScript() {
