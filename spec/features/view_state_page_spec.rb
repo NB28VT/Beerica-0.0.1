@@ -12,7 +12,7 @@ Acceptance criteria:
 "
 ) do
 
-  scenario "A user can click on a state and be brought to a state info page" do
+  scenario "A user can click on a state and be brought to a state info page", js: true do
     visit states_path
 
     save_and_open_page
