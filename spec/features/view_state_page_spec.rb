@@ -35,7 +35,7 @@ Acceptance criteria:
     expect(page).to have_content(brewery.website)
   end
 
-  scenario "The state page includes a Google map for the state, with all brewery locations marked", js: true do
+  scenario "The state page includes links to all breweries in the state" do
     visit state_breweries_path(state_id)
 
     all_breweries.each do |brewery_name|
