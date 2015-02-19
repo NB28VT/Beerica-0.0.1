@@ -7,7 +7,7 @@ So I can see a list of all the breweries in that state
 
 Acceptance criteria:
 [x] A user can visit a state and be brought to a state info page (JS is untested in this suite)
-[ ] The state page includes links to all breweries in the state
+[x] The state page includes links to all breweries in the state
 [x] A user can click on a brewery and get information on the brewery
 [x] The state page includes a Google map for the state, with all brewery locations marked (JS is untested in this suite)
 "
@@ -42,7 +42,4 @@ Acceptance criteria:
       expect(page).to have_content(brewery_name)
     end
   end
-
-
-
 end
