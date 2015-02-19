@@ -6,28 +6,27 @@ I would like to select a state
 So I can see a list of all the breweries in that state
 
 Acceptance criteria:
-[x] A user can click on a state and be brought to a state info page
+[x] A user can visit a state and be brought to a state info page (untested in this suite)
 [x] The page will include links to brewery pages for each brewery
-[x] The page includes a Google map for the state, with all brewery locations
+[ ] The page includes a Google map for the state, with all brewery locations
 "
 ) do
 
-  scenario "A user can click on a state and be brought to a state info page", js: true do
-    visit states_path
+  state_id = State.find_by(name: "Vermont").id
+  brewery = Brewery.find_by(name: "Rock Art Brewery")
 
-    save_and_open_page
-
-    click_on "highcharts-name-vermont highcharts-key-us-vt"
+  scenario "A user can visit a state info page", js: true do
+    visit state_breweries_path(state_id)
 
     expect(page).to have_content("Vermont")
   end
 
-  scenario "The page will include links to brewery pages for each brewery" do
-    visit state_breweries_path(@state.id)
+  scenario "The page will include URL links to brewery pages for each brewery" do
+    visit state_breweries_path(state_id)
 
-    click_on @brewery.name
+    click_on brewery.name
 
-    expect(page).to have_content(@brewery.website)
+    expect(page).to have_content(brewery.website)
   end
 
 
