@@ -2,6 +2,8 @@ require 'json'
 require 'csv'
 
 class Map
+
+  attr_reader :state_brewery_hash
   def initialize
 
   @state_brewery_hash = {"Alabama"=>26,
@@ -12,6 +14,7 @@ class Map
    "Colorado"=>306,
    "Connecticut"=>44,
    "Delaware"=>13,
+   "District of Columbia" => 15,
    "Florida"=>138,
    "Georgia"=>50,
    "Hawaii"=>17,
