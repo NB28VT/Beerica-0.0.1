@@ -1,13 +1,13 @@
-<script src="http://code.highcharts.com/maps/highmaps.js"></script>
-<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
-<script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
+
 
 <div id="logo" style="height: 250px; min-width: 310px; max-width: 600px; text-align: center; margin: 0 auto" >
   <%= image_tag('beerica-logo.png') %>
 </div>
 
 <div id="container" style="height: 500px; min-width: 310px; max-width: 600px; margin: 0 auto"></div>
-
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+<script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/mapdata/countries/us/us-all.js"></script>
 
 <script>
 
@@ -278,7 +278,7 @@
 
 
     // Initiate the chart
-    $('#container').highcharts('Map', {
+    jQuery('#container').highcharts('Map', {
 
         title : {
             text : false
