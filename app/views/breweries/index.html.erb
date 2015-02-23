@@ -1,17 +1,21 @@
-<h1>Google Maps Test</h1>
-<div id="map-container">
-  <div id="map-canvas"></div>
+<div class = "row">
+  <h1><%= @state.name %></h1>
+
+  <div class="small-6 large-5 columns">
+    <% @state.breweries.each do |brewery| %>
+      <ul>
+        <li>
+           <%= link_to brewery.name, state_brewery_path(@state, brewery) %>
+         </li>
+       </ul>
+    <% end %>
+  </div>
+
+  <div class= "small-6 large-7 columns" id="map-container">
+    <div id="map-canvas"></div>
+  </div>
 </div>
 
-<%= @state.name %>
-
-<% @state.breweries.each do |brewery| %>
-  <ul>
-    <li>
-       <%= link_to brewery.name, state_brewery_path(@state, brewery) %>
-     </li>
-   </ul>
-<% end %>
 
 <script type="text/javascript" >
   var geocoder;
