@@ -30,3 +30,10 @@
   height: 384px;
   width: 100%;
 }
+
+nav.top-bar.name {
+text-align:center;
+}
+section.top-bar-section {
+display: inline-block;
+}
