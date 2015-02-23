@@ -2,6 +2,10 @@
   <h1><%= @state.name %></h1>
 
   <div class="small-6 large-5 columns">
+
+
+    <%= select_tag "Breweries", options_from_collection_for_select(@breweries, "id", "name") %>
+
     <% @state.breweries.each do |brewery| %>
       <ul>
         <li>
