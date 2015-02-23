@@ -683,10 +683,10 @@ $white       : #FFFFFF;
 
 // We use these to style the icon-bar and items
 // $include-html-icon-bar-classes: $include-html-classes;
-// $icon-bar-bg: $oil;
+$icon-bar-bg: #0F7D46;
 // $icon-bar-font-color: $white;
 // $icon-bar-font-size: 1rem;
-// $icon-bar-hover-color: $primary-color;
+$icon-bar-hover-color: #7FE376;
 // $icon-bar-icon-color: $white;
 // $icon-bar-icon-size: 1.875rem;
 // $icon-bar-image-width: 1.875rem;
@@ -1361,8 +1361,8 @@ $white       : #FFFFFF;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: #0F7D46;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
 $topbar-height: 60px;
@@ -1370,7 +1370,7 @@ $topbar-height: 60px;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-$topbar-title-font-size: 50px;
+$topbar-title-font-size: 40px;
 $topbar-title-font-color: $white;
 
 // Style the top bar dropdown elements
