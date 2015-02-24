@@ -14,4 +14,10 @@ class BreweriesController < ApplicationController
   def show
     @brewery = Brewery.find(params[:id])
   end
+
+  def redirect
+    binding.pry
+    redirect_to state_brewery_path(params[:id])
+  end
+
 end

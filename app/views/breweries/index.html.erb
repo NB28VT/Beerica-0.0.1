@@ -2,9 +2,11 @@
   <h1><%= @state.name %></h1>
 
   <div class="small-6 large-5 columns">
-
-
-    <%= select_tag "Breweries", options_from_collection_for_select(@breweries, "id", "name") %>
+    <%= form_tag("#{@state.id}/breweries/", :method=>:get) do %>
+      <%= select_tag('id', options_from_collection_for_select(@breweries, 'id', 'name'))%>
+      <%= hidden_field_tag :id %>
+      <%= submit_tag "go!" %>
+    <% end %>
 
     <% @state.breweries.each do |brewery| %>
       <ul>
@@ -79,4 +81,5 @@
   }
 
   window.onload = loadScript;
+
 </script>
