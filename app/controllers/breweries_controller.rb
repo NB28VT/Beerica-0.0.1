@@ -6,7 +6,7 @@ class BreweriesController < ApplicationController
     api_key = ENV['GOOGLE_MAP_API_TOKEN']
     @map_api_call = "https://maps.googleapis.com/maps/api/js?key=#{api_key}"
     @state = State.find(params[:state_id])
-    @breweries = @state.breweries
+    @breweries = @state.breweries.sort_by &:name
     location_builder = BuildLocationArray.new
     @brewery_location_array = location_builder.build_locations(@breweries).to_json
   end
@@ -14,4 +14,10 @@ class BreweriesController < ApplicationController
   def show
     @brewery = Brewery.find(params[:id])
   end
+
+  def redirect
+    binding.pry
+    redirect_to state_brewery_path(params[:id])
+  end
+
 end

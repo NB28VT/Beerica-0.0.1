@@ -30,6 +30,7 @@ class BreweryPerStateLoader
   end
 
   # Helper method for loading breweries for each state. Called in state loader
+  # CAREFUL: THIS HITS API ONCE FORE EACH STATE. 400 REQUEST LIMIT
   def load_breweries_per_capita(state)
     @per_capita_hash[state]
   end

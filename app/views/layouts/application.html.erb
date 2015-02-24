@@ -1,19 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-    <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
+    <div class="contain-to-grid sticky">
+      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">BEERICA: Tracking the state of breweries by state</a></h1>
+          </li>
+        </ul>
+      </nav>
+      <div class="icon-bar four-up">
+        <a class="item">
+          <img src="/assets/img/images/fi-home.svg" >
+          <label>Home</label>
+        </a>
+        <a class="item">
+          <img src="/assets/img/images/fi-magnifying-glass.svg" >
+          <label>Search</label>
+        </a>
+        <a class="item">
+          <img src="/assets/img/images/fi-share.svg" >
+          <label>Share</label>
+        </a>
+        <a class="item">
+          <img src="/assets/img/images/fi-info.svg" >
+          <label>About</label>
+        </a>
+      </div>
+    </div>
+
 
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
   </body>
 </html>
