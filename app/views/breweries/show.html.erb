@@ -26,7 +26,6 @@
 
   function initialize() {
     geocoder = new google.maps.Geocoder();
-    codeAddress();
     var latlng = new google.maps.LatLng(<%= @brewery.latitude %>,<%= @brewery.longitude %> );
 
     var mapOptions = {
