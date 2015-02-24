@@ -11,9 +11,14 @@
     </ul>
   </div>
 
-  <div class= "hide-for-small large-7 columns" id="map-container">
-    <div id="map-canvas"></div>
-  </div>
+  <% if (@brewery.latitude || @brewery.longitude) %>
+    <div class= "hide-for-small large-7 columns" id="map-container">
+      <div id="map-canvas"></div>
+    </div>
+  <% end %>
+
+
+
 </div>
 
 <script type="text/javascript" >
@@ -21,40 +26,35 @@
   var map;
 
   function initialize() {
-  geocoder = new google.maps.Geocoder();
-  codeAddress();
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
-  var mapOptions = {
-    zoom: 6,
-    center: latlng
-  }
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    geocoder = new google.maps.Geocoder();
+    codeAddress();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
 
-  var locations = <%= raw @brewery_location_array.as_json %>;
-  var infowindow = new google.maps.InfoWindow();
+    var mapOptions = {
+      zoom: 6,
+      center: latlng
+    }
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-   for (var i = 0; i < locations.length; i++) {
-       var marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map,
-         url: locations[i][3]
-       });
+    var infowindow = new google.maps.InfoWindow();
 
-       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-         return function() {
-           infowindow.setContent(locations[i][0]);
-           infowindow.open(map, marker);
-         }
-       })(marker, i));
+    var marker = new google.maps.Marker({
+     position: new google.maps.LatLng(<%= @brewery.latitude %>, <%= @brewery.longitude %>),
+     map: map,
+    });
 
-      google.maps.event.addListener(marker, 'click', function() {
-        window.location.href = this.url;
-      });
+   google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+     return function() {
+       infowindow.setContent(@brewery.name);
+       infowindow.open(map, marker);
+     }
+   })(marker, i));
+
     }
   }
 
   function codeAddress() {
-    var state = " <%= @state.name %> ";
+    var state = " <%= @brewery.state.name %> ";
     geocoder.geocode( { 'address': state}, function(results, status) {
 
     var ne = results[0].geometry.viewport.getNorthEast();
@@ -75,15 +75,5 @@
 
   window.onload = loadScript;
 
-  $(function(){
-    $('#brewery').bind('change', function () {
-      var state = <%= @state.id %>;
-       var url = "/states/" + state + "/breweries/" + $(this).val()
-        if (url) {
-            window.location.replace(url);
-        }
-        return false;
-    });
-  });
 
 </script>
