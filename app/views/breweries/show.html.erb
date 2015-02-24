@@ -11,13 +11,12 @@
     </ul>
   </div>
 
-  <% if (@brewery.latitude || @brewery.longitude) %>
+
+  <% if (@brewery.latitude && @brewery.longitude) %>
     <div class= "hide-for-small large-7 columns" id="map-container">
       <div id="map-canvas"></div>
     </div>
   <% end %>
-
-
 
 </div>
 
@@ -28,7 +27,7 @@
   function initialize() {
     geocoder = new google.maps.Geocoder();
     codeAddress();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(<%= @brewery.latitude %>,<%= @brewery.longitude %> );
 
     var mapOptions = {
       zoom: 6,
@@ -43,27 +42,8 @@
      map: map,
     });
 
-   google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
-     return function() {
-       infowindow.setContent(@brewery.name);
-       infowindow.open(map, marker);
-     }
-   })(marker, i));
-
-    }
   }
 
-  function codeAddress() {
-    var state = " <%= @brewery.state.name %> ";
-    geocoder.geocode( { 'address': state}, function(results, status) {
-
-    var ne = results[0].geometry.viewport.getNorthEast();
-    var sw = results[0].geometry.viewport.getSouthWest();
-
-    var bounds = new google.maps.LatLngBounds(sw, ne);
-    map.setCenter(bounds.getCenter());
-  });
-  }
 
   function loadScript() {
    var script = document.createElement('script');
