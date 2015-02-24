@@ -2,21 +2,12 @@
   <h1><%= @state.name %></h1>
 
   <div class="small-6 large-5 columns">
-
+    <h2>Search by brewery:</h2>
     <%= select_tag 'brewery', options_from_collection_for_select(@breweries, 'id', 'name')%>
 
-
-
-    <% @state.breweries.each do |brewery| %>
-      <ul>
-        <li>
-           <%= link_to brewery.name, state_brewery_path(@state, brewery) %>
-         </li>
-       </ul>
-    <% end %>
   </div>
 
-  <div class= "small-6 large-7 columns" id="map-container">
+  <div class= "hide-for-small large-7 columns" id="map-container">
     <div id="map-canvas"></div>
   </div>
 </div>
