@@ -27,10 +27,10 @@ Acceptance criteria:
     expect(page).to have_content("Vermont")
   end
 
-  scenario "A user can click on a brewery and get information on the brewery" do
+  scenario "A user can click on a brewery and get information on the brewery", js: true do
     visit state_breweries_path(state_id)
 
-    click_on brewery.name
+    select(brewery.name, from: 'brewery')
 
     expect(page).to have_content(brewery.website)
   end
