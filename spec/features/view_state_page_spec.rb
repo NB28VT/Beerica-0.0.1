@@ -10,6 +10,9 @@ Acceptance criteria:
 [x] The state page includes links to all breweries in the state
 [x] A user can click on a brewery and get information on the brewery
 [x] The state page includes a Google map for the state, with all brewery locations marked (JS is untested in this suite)
+[ ] A user can look up a town and see all of the breweries in that city
+[ ] A user can search for a brewery near a specifc location
+[ ] A user can search for a brewery near their current location
 "
 ) do
 
@@ -27,10 +30,10 @@ Acceptance criteria:
     expect(page).to have_content("Vermont")
   end
 
-  scenario "A user can click on a brewery and get information on the brewery" do
+  scenario "A user can click on a brewery and get information on the brewery", js: true do
     visit state_breweries_path(state_id)
 
-    click_on brewery.name
+    select(brewery.name, from: 'brewery')
 
     expect(page).to have_content(brewery.website)
   end
@@ -41,5 +44,16 @@ Acceptance criteria:
     all_breweries.each do |brewery_name|
       expect(page).to have_content(brewery_name)
     end
+  end
+
+  scenario "A user can look up a cities and see all of the breweries there", js: true do
+    visit state_breweries_path(state_id)
+    select(brewery.city, from: 'cities')
+
+    expect(page).to have_content(brewery.name)
+
+    click_on(brewery.name)
+
+    expect(page).to have_content(brewery.website)
   end
 end
