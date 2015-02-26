@@ -18,15 +18,12 @@ class StateBrewerySeeder
     #  Loads brewery data from API
      state_brewery_hash = get_state_breweries(state.name)
      state_brewery_hash.each do |brewery|
+      #  Create city first if doesn't exist
        city_name = brewery[:locality]
-      #  In case city is null
-       if city_name
-         city_loader = CityLoader.new
-         brewery_city = city_loader.load_city(state, city_name)
-         city_id = brewery_city.id
-       else
-         city_id = nil
-       end
+
+       city_loader = CityLoader.new(city_name, state)
+       brewery_city = city_loader.load_city
+       city_id = brewery_city.id
 
        name = brewery[:brewery][:name]
        state_id = state.id
