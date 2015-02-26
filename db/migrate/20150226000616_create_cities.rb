@@ -1,8 +1,9 @@
 class CreateCities < ActiveRecord::Migration
-  def change
-    create_table :cities do |t|
+  def up
+    add_column :cities, :state_id, :integer
+  end
 
-      t.timestamps null: false
-    end
+  def down
+    remove_column :cities, :state_id
   end
 end
