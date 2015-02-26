@@ -12,14 +12,25 @@ class StateBrewerySeeder
     @brewery_db.locations.all(region: state )
   end
 
+  # For each state, load and create the breweries and cities for that state
   def seed_breweries
    @states.each do |state|
     #  Loads brewery data from API
      state_brewery_hash = get_state_breweries(state.name)
      state_brewery_hash.each do |brewery|
+       city_name = brewery[:locality]
+      #  In case city is null
+       if city_name
+         city_loader = CityLoader.new
+         brewery_city = city_loader.load_city(state, city_name)
+         city_id = brewery_city.id
+       else
+         city_id = nil
+       end
+
        name = brewery[:brewery][:name]
        state_id = state.id
-       city = brewery[:locality]
+
        street_address = brewery[:street_address]
        website = brewery[:website]
        phone = brewery[:phone]
@@ -31,7 +42,7 @@ class StateBrewerySeeder
        Brewery.create(
         name: name,
         state_id: state_id,
-        city: city,
+        city_id: city_id,
         street_address: street_address,
         website: website,
         phone: phone,
