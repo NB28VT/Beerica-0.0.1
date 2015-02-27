@@ -4,8 +4,8 @@ class CityLoader
     @city = city
   end
 
-  def load_city    
-    if city != nil
+  def load_city
+    if @city != nil
       City.find_or_create_by(
         name: @city,
         state_id: @state.id

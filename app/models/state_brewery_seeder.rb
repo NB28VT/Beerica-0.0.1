@@ -21,9 +21,15 @@ class StateBrewerySeeder
       #  Create city first if doesn't exist
        city_name = brewery[:locality]
 
-       city_loader = CityLoader.new(city_name, state)
-       brewery_city = city_loader.load_city
-       city_id = brewery_city.id
+      #  Check in case city is not provided
+
+       if city_name != nil
+         city_loader = CityLoader.new(city_name, state)
+         brewery_city = city_loader.load_city
+         city_id = brewery_city.id
+       else
+         city_id = nil
+       end
 
        name = brewery[:brewery][:name]
        state_id = state.id
