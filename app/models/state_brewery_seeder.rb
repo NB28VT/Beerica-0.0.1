@@ -23,8 +23,6 @@ class StateBrewerySeeder
 
        city_loader = CityLoader.new(city_name, state)
        brewery_city = city_loader.load_city
-      #  city is getting created with nil id
-       binding.pry
        city_id = brewery_city.id
 
        name = brewery[:brewery][:name]
