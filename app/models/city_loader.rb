@@ -4,12 +4,13 @@ class CityLoader
     @city = city
   end
 
-  def load_city
-    # problem: dealing with existing city
-    City.find_or_create_by(
-      name: @city,
-      state_id: @state.id
-    )
+  def load_city    
+    if city != nil
+      City.find_or_create_by(
+        name: @city,
+        state_id: @state.id
+      )
+    end
   end
 
   # NOT RUN. Use with alternative architecture
