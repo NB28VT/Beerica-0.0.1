@@ -6,7 +6,7 @@ class CityLoader
 
   def load_city
     # problem: dealing with existing city
-    City.find_or_initialize_by(
+    City.find_or_create_by(
       name: @city,
       state_id: @state.id
     )
