@@ -88,7 +88,7 @@
   // Listener on city dropdown. Links to city page on select
 
   $(function(){
-    $('#city').bind('change', function () {
+    $('#cities').bind('change', function () {
       var state = <%= @state.id %>;
        var url = "/states/" + state + "/cities/" + $(this).val()
         if (url) {
