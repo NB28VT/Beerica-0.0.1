@@ -11,6 +11,7 @@
     </ul>
   </div>
 
+  <!-- Map is not loading if redirected here from JS in city call -->
 
   <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
     <%= render "single_brewery_map" %>
