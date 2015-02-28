@@ -72,10 +72,25 @@
 
   window.onload = loadScript;
 
+  // Listener on brewery dropdown. Links to brewery page on select
+
   $(function(){
     $('#brewery').bind('change', function () {
       var state = <%= @state.id %>;
        var url = "/states/" + state + "/breweries/" + $(this).val()
+        if (url) {
+            window.location.replace(url);
+        }
+        return false;
+    });
+  });
+
+  // Listener on city dropdown. Links to city page on select
+
+  $(function(){
+    $('#city').bind('change', function () {
+      var state = <%= @state.id %>;
+       var url = "/states/" + state + "/cities/" + $(this).val()
         if (url) {
             window.location.replace(url);
         }
