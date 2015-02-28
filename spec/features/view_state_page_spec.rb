@@ -48,7 +48,7 @@ Acceptance criteria:
 
   scenario "A user can look up a cities and see all of the breweries there", js: true do
     visit state_breweries_path(state_id)
-    select(brewery.city, from: 'cities')
+    select(brewery.city.name, from: 'cities')
 
     expect(page).to have_content(brewery.name)
 

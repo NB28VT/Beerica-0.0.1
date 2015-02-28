@@ -4,6 +4,8 @@
   <div class="small-6 large-5 columns">
     <h2>Search by brewery:</h2>
     <%= select_tag 'brewery', options_from_collection_for_select(@breweries, 'id', 'name')%>
+    <h2>Search by city:</h2>
+    <%= select_tag 'cities', options_from_collection_for_select(@state.cities, 'id', 'name')%>
   </div>
 
   <div class= "hide-for-small large-7 columns" id="map-container">
@@ -70,10 +72,25 @@
 
   window.onload = loadScript;
 
+  // Listener on brewery dropdown. Links to brewery page on select
+
   $(function(){
     $('#brewery').bind('change', function () {
       var state = <%= @state.id %>;
        var url = "/states/" + state + "/breweries/" + $(this).val()
+        if (url) {
+            window.location.replace(url);
+        }
+        return false;
+    });
+  });
+
+  // Listener on city dropdown. Links to city page on select
+
+  $(function(){
+    $('#cities').bind('change', function () {
+      var state = <%= @state.id %>;
+       var url = "/states/" + state + "/cities/" + $(this).val()
         if (url) {
             window.location.replace(url);
         }
