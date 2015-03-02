@@ -32,7 +32,7 @@ Acceptance criteria:
     visit root_path
 
     click_on("info")
-    expect(page).to have_content("About Beerica")
+    expect(page).to have_content("Nathan Burgess")
   end
 
 end
