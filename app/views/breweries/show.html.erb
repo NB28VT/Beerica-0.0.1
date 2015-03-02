@@ -11,11 +11,10 @@
     </ul>
   </div>
 
+  <!-- Map is not loading if redirected here from JS in city call -->
 
-  <% if (@brewery.latitude && @brewery.longitude) %>
-    <div class= "hide-for-small large-7 columns" id="map-container">
-      <div id="map-canvas"></div>
-    </div>
+  <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
+    <%= render "single_brewery_map" %>
   <% end %>
 
 </div>
@@ -53,6 +52,5 @@
   }
 
   window.onload = loadScript;
-
 
 </script>

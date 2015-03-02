@@ -52,7 +52,7 @@ Acceptance criteria:
 
     expect(page).to have_content(brewery.name)
 
-    click_on(brewery.name)
+    select(brewery.name, from: 'breweries')
 
     expect(page).to have_content(brewery.website)
   end
