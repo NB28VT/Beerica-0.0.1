@@ -1,7 +1,24 @@
 <h1><%= @city.name %></h1>
 
-<% @breweries.each do |brewery| %>
-  <ul>
-    <%= link_to brewery.name, state_brewery_path(brewery.state, brewery) %>
-  </ul>
-<% end %>
+<div class="small-6 large-5 columns">
+  <h2>Select brewery:</h2>
+  <%= select_tag 'brewery', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
+</div>
+
+
+<script type="text/javascript" >
+
+// Listener on brewery dropdown. Links to brewery page on select
+
+$(function(){
+  $('#brewery').bind('change', function () {
+    var state = <%= @city.state.id %>;
+     var url = "/states/" + state + "/cities/" + $(this).val()
+      if (url) {
+          window.location.replace(url);
+      }
+      return false;
+  });
+});
+
+</script>
