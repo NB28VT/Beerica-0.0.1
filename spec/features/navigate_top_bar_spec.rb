@@ -16,8 +16,8 @@ Acceptance criteria:
   scenario "The home page link returns the user to the state index page", js: true do
     visit state_breweries_path(state_id)
 
-    click_on "Home"
-    expect(page).to have_content("Breweries per capita:")
+    click_on("home")
+    expect(page).to have_content("Breweries per capita")
   end
 
   scenario "The search link brings the user to a search for breweries page", js: true do
