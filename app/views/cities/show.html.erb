@@ -2,7 +2,7 @@
 
 <div class="small-6 large-5 columns">
   <h2>Select brewery:</h2>
-  <%= select_tag 'brewery', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
+  <%= select_tag 'breweries', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
 </div>
 
 
@@ -11,7 +11,7 @@
 // Listener on brewery dropdown. Links to brewery page on select
 
 $(function(){
-  $('#brewery').bind('change', function () {
+  $('#breweries').bind('change', function () {
     var state = <%= @city.state.id %>;
      var url = "/states/" + state + "/breweries/" + $(this).val()
       if (url) {
