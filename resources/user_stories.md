@@ -57,7 +57,7 @@ I would like to have my API listed on Beerica
 So it will abide by my terms of use
 
 Acceptance criteria:
-[ ] Brewery DB is mentioned in the info page
+[x] Brewery DB is mentioned in the info page
 [ ] Brewery DB is featured in a footer
 
 ---
@@ -66,7 +66,7 @@ I would like to navigate the top bar of Beerica
 So I can easily get around the website
 
 Acceptance criteria:
-[ ] The home page link returns the user to the state index page
+[x] The home page link returns the user to the state index page
 [ ] The search link brings the user to a search for breweries page
 [ ] The share link lets the user share Beerica via Twitter and Facebook
-[ ] The info page link brings the user to an info page
+[x] The info page link brings the user to an info page

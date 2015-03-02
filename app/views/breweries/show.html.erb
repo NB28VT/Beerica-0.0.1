@@ -5,13 +5,11 @@
     <ul>
       <li><%= @brewery.city %></li>
       <li><%= @brewery.street_address %></li>
-      <li><%= @brewery.website %></li>
+      <li><%= link_to "Website", (@brewery.website) %></li>
       <li><%= @brewery.phone %></li>
       <li><%= @brewery.hours_of_operation %></li>
     </ul>
   </div>
-
-  <!-- Map is not loading if redirected here from JS in city call -->
 
   <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
     <%= render "single_brewery_map" %>
