@@ -1,7 +1,4 @@
-class InfoController < AppplicationController
+class InfoController < ApplicationController
   def index
   end
-
-
-
 end
