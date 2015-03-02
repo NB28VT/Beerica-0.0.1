@@ -24,10 +24,10 @@
         </ul>
       </nav>
       <div class="icon-bar four-up">
-        <a class="item">
+        <%= link_to root_path, {controller: "states", action: "index"}, class: "item" do %>
           <img src="/assets/img/images/fi-home.svg" >
           <label>Home</label>
-        </a>
+        <% end %>
         <a class="item">
           <img src="/assets/img/images/fi-magnifying-glass.svg" >
           <label>Search</label>
