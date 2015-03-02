@@ -16,7 +16,7 @@ Acceptance criteria:
   brewery = Brewery.find_by(name: "Rock Art Brewery")
 
   scenario "A user can visit a brewery's website if one is available", js: true do
-    visit state_breweries_path(state_id)
+    visit state_brewery_path(state_id, brewery.id)
 
     click_link "Website"
 
