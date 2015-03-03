@@ -41,3 +41,10 @@ nav.top-bar.name {
 section.top-bar-section {
   display: inline-block;
 }
+
+#brew-icons.li:before {
+font-family: 'FontAwesome';
+content: '\f067';
+margin:0 5px 0 -15px;
+color: #f00;
+}

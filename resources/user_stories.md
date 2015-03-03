@@ -38,7 +38,7 @@ So I can visit it
 Acceptance criteria:
 [x] A user can visit a brewery page and see a map showing the exact location of the brewery
 [ ] A user can see a picture of a brewery if one is available
-[ ] A user can visit a brewery's website if one is available
+[x] A user can visit a brewery's website if one is available
 [ ] If a location is not available, the user will see a message
 
 ---

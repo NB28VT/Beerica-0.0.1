@@ -2,12 +2,26 @@
   <h1><%= @brewery.name %></h1>
 
   <div class="small-6 large-5 columns">
-    <ul>
-      <li><%= @brewery.city %></li>
-      <li><%= @brewery.street_address %></li>
-      <li><%= link_to "Website", (@brewery.website) %></li>
-      <li><%= @brewery.phone %></li>
-      <li><%= @brewery.hours_of_operation %></li>
+    <ul class="brew-icons">
+      <% if @brewery.city %>
+        <li><%= @brewery.city %></li>
+      <% end %>
+
+      <% if @brewery.street_address %>
+        <li><%= @brewery.street_address %></li>
+      <% end %>
+
+      <% if @brewery.website %>
+        <li><%= link_to "Website", (@brewery.website) %></li>
+      <% end %>
+
+      <% if @brewery.phone %>
+        <li><%= @brewery.phone %></li>
+      <% end %>
+
+      <% if @brewery.phone %>
+        <li><%= @brewery.hours_of_operation %></li>
+      <% end %>
     </ul>
   </div>
 
