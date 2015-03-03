@@ -1,7 +1,7 @@
 <div class = "row">
-  <h1><%= @brewery.name %></h1>
+  <div class="brew-info small-12 large-7 columns">
+    <h1><%= @brewery.name %></h1>
 
-  <div class="small-6 large-5 columns">
     <ul class="fa-ul">
       <% if @brewery.city && @brewery.street_address %>
         <li>

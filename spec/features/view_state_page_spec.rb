@@ -11,6 +11,7 @@ Acceptance criteria:
 [x] A user can click on a brewery and get information on the brewery
 [x] The state page includes a Google map for the state, with all brewery locations marked (JS is untested in this suite)
 [x] A user can look up a town and see all of the breweries in that city
+[ ] A state page includes stats on the breweries in that state
 [ ] A user can search for a brewery near a specifc location
 [ ] A user can search for a brewery near their current location
 "

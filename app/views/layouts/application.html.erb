@@ -15,7 +15,6 @@
   </head>
 
   <body>
-    <div class="contain-to-grid sticky">
       <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
         <ul class="title-area">
           <li class="name">
@@ -23,6 +22,7 @@
           </li>
         </ul>
       </nav>
+
       <div class="icon-bar four-up">
         <%= link_to root_path, {controller: "states", action: "index", id: "home"}, class: "item" do %>
           <img src="/assets/img/images/fi-home.svg" >
@@ -42,7 +42,6 @@
           <label>About</label>
           <% end %>
       </div>
-    </div>
 
 
     <%= yield %>
