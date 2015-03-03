@@ -3,24 +3,24 @@
 
   <div class="small-6 large-5 columns">
     <ul class="fa-ul">
-      <% if @brewery.city %>
-        <li><i class="fa-li fa fa-check-square"></i><%= @brewery.city %></li>
-      <% end %>
-
-      <% if @brewery.street_address %>
-        <li><%= @brewery.street_address %></li>
+      <% if @brewery.city && @brewery.street_address %>
+        <li>
+          <%= fa_icon "location-arrow", text: "#{@brewery.street_address} #{@brewery.city.name}, #{@brewery.state.name}" %>
+        </li>
       <% end %>
 
       <% if @brewery.website %>
-        <li><%= link_to "Website", (@brewery.website) %></li>
+        <li><%= fa_icon "external-link" %><%= link_to "Website", (@brewery.website) %></li>
       <% end %>
 
       <% if @brewery.phone %>
-        <li><%= @brewery.phone %></li>
+        <li>
+          <%= fa_icon "phone", text: @brewery.phone %>
+        </li>
       <% end %>
 
-      <% if @brewery.phone %>
-        <li><%= @brewery.hours_of_operation %></li>
+      <% if @brewery.hours_of_operation %>
+        <li><%= fa_icon "clock-o", text: @brewery.hours_of_operation %></li>
       <% end %>
     </ul>
   </div>
