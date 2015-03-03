@@ -2,9 +2,9 @@
   <h1><%= @brewery.name %></h1>
 
   <div class="small-6 large-5 columns">
-    <ul class="brew-icons">
+    <ul class="fa-ul">
       <% if @brewery.city %>
-        <li><%= @brewery.city %></li>
+        <li><i class="fa-li fa fa-check-square"></i><%= @brewery.city %></li>
       <% end %>
 
       <% if @brewery.street_address %>
