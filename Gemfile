@@ -16,7 +16,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'brewery_db'
 gem 'foundation-rails'
-gem 'font-awesome-less'
+# gem 'font-awesome-less'
 
 group :development, :test do
   gem 'byebug'
