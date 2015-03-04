@@ -16,7 +16,6 @@
  *= require font-awesome
  */
 
- 
 #map-container {
   height: 400px;
   border-radius: 16px 16px;
@@ -33,11 +32,6 @@
 
 #map-label{
   text-align:center;
-}
-
-.brew-info {
-  background-color: #635C4F;
-  border-radius: 16px 16px;
 }
 
 nav.top-bar.name {

@@ -1,5 +1,5 @@
 <div class = "row">
-  <div class="brew-info small-12 large-7 columns">
+  <div class="small-12 large-7 columns" id="brew-info">
     <h1><%= @brewery.name %></h1>
 
     <ul class="fa-ul">
@@ -23,11 +23,21 @@
         <li><%= fa_icon "clock-o", text: @brewery.hours_of_operation %></li>
       <% end %>
     </ul>
+
+    <hr>
+
+    <div id="reviews">
+      <h5>Reviews coming soon!</h5>
+    </div>
   </div>
 
-  <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
-    <%= render "single_brewery_map" %>
-  <% end %>
+
+
+  <div>
+    <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
+      <%= render "single_brewery_map" %>
+    <% end %>
+  </div>
 
 </div>
 
