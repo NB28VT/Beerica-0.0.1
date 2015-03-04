@@ -11,6 +11,7 @@ Acceptance criteria:
 [x] A user can click on a brewery and get information on the brewery
 [x] The state page includes a Google map for the state, with all brewery locations marked (JS is untested in this suite)
 [x] A user can look up a town and see all of the breweries in that city
+[ ] A state page includes stats on the breweries in that state
 [ ] A user can search for a brewery near a specifc location
 [ ] A user can search for a brewery near their current location
 "
@@ -20,6 +21,7 @@ Acceptance criteria:
   brewery = Brewery.find_by(name: "Rock Art Brewery")
   all_breweries = []
 
+  # This may be slowing down tests
   Brewery.where(state_id: state_id).each do |brewery|
     all_breweries << brewery.name
   end
@@ -35,7 +37,7 @@ Acceptance criteria:
 
     select(brewery.name, from: 'brewery')
 
-    expect(page).to have_content(brewery.website)
+    expect(page).to have_content("Website")
   end
 
   scenario "The state page includes links to all breweries in the state" do
@@ -54,6 +56,6 @@ Acceptance criteria:
 
     select(brewery.name, from: 'breweries')
 
-    expect(page).to have_content(brewery.website)
+    expect(page).to have_content("Website")
   end
 end

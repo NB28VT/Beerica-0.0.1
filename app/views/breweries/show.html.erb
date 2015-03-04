@@ -1,21 +1,43 @@
 <div class = "row">
-  <h1><%= @brewery.name %></h1>
+  <div class="small-12 large-7 columns" id="brew-info">
+    <h1><%= @brewery.name %></h1>
 
-  <div class="small-6 large-5 columns">
-    <ul>
-      <li><%= @brewery.city %></li>
-      <li><%= @brewery.street_address %></li>
-      <li><%= @brewery.website %></li>
-      <li><%= @brewery.phone %></li>
-      <li><%= @brewery.hours_of_operation %></li>
+    <ul class="fa-ul">
+      <% if @brewery.city && @brewery.street_address %>
+        <li>
+          <%= fa_icon "location-arrow", text: "#{@brewery.street_address} #{@brewery.city.name}, #{@brewery.state.name}" %>
+        </li>
+      <% end %>
+
+      <% if @brewery.website %>
+        <li><%= fa_icon "external-link" %><%= link_to "Website", (@brewery.website) %></li>
+      <% end %>
+
+      <% if @brewery.phone %>
+        <li>
+          <%= fa_icon "phone", text: @brewery.phone %>
+        </li>
+      <% end %>
+
+      <% if @brewery.hours_of_operation %>
+        <li><%= fa_icon "clock-o", text: @brewery.hours_of_operation %></li>
+      <% end %>
     </ul>
+
+    <hr>
+
+    <div id="reviews">
+      <h5>Reviews coming soon!</h5>
+    </div>
   </div>
 
-  <!-- Map is not loading if redirected here from JS in city call -->
 
-  <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
-    <%= render "single_brewery_map" %>
-  <% end %>
+
+  <div>
+    <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
+      <%= render "single_brewery_map" %>
+    <% end %>
+  </div>
 
 </div>
 
@@ -28,7 +50,7 @@
     var latlng = new google.maps.LatLng(<%= @brewery.latitude %>,<%= @brewery.longitude %> );
 
     var mapOptions = {
-      zoom: 6,
+      zoom: 12,
       center: latlng
     }
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);

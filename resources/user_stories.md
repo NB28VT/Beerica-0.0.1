@@ -27,6 +27,7 @@ Acceptance criteria:
 [x] A user can click on a brewery and get information on the brewery
 [x] The state page includes a Google map for the state, with all brewery locations marked
 [x] A user can look up a town and see all of the breweries in that city
+[ ] A state page includes stats on the breweries in that state
 [ ] A user can search for a brewery near a specific location
 [ ] A user can search for a brewery near their current location
 
@@ -38,7 +39,7 @@ So I can visit it
 Acceptance criteria:
 [x] A user can visit a brewery page and see a map showing the exact location of the brewery
 [ ] A user can see a picture of a brewery if one is available
-[ ] A user can visit a brewery's website if one is available
+[x] A user can visit a brewery's website if one is available
 [ ] If a location is not available, the user will see a message
 
 ---
@@ -57,7 +58,7 @@ I would like to have my API listed on Beerica
 So it will abide by my terms of use
 
 Acceptance criteria:
-[ ] Brewery DB is mentioned in the info page
+[x] Brewery DB is mentioned in the info page
 [ ] Brewery DB is featured in a footer
 
 ---
@@ -66,7 +67,7 @@ I would like to navigate the top bar of Beerica
 So I can easily get around the website
 
 Acceptance criteria:
-[ ] The home page link returns the user to the state index page
+[x] The home page link returns the user to the state index page
 [ ] The search link brings the user to a search for breweries page
 [ ] The share link lets the user share Beerica via Twitter and Facebook
-[ ] The info page link brings the user to an info page
+[x] The info page link brings the user to an info page

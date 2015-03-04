@@ -15,35 +15,35 @@
   </head>
 
   <body>
-    <div class="contain-to-grid sticky">
-      <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
-        <ul class="title-area">
-          <li class="name">
-            <h1><a href="#">BEERICA: Tracking the state of breweries by state</a></h1>
-          </li>
-        </ul>
-      </nav>
-      <div class="icon-bar four-up">
-        <%= link_to root_path, {controller: "states", action: "index", id: "home"}, class: "item" do %>
-          <img src="/assets/img/images/fi-home.svg" >
-          <label>Home</label>
-        <% end %>
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">BEERICA: Tracking the state of breweries by state</a></h1>
+        </li>
+      </ul>
+    </nav>
 
-        <a class="item">
-          <img src="/assets/img/images/fi-magnifying-glass.svg" >
-          <label>Search</label>
-        </a>
-        <a class="item">
-          <img src="/assets/img/images/fi-share.svg" >
-          <label>Share</label>
-        </a>
-        <%= link_to info_index_path, {controller: "info", action: "index", id: "info"}, class: "item" do %>
-          <img src="/assets/img/images/fi-info.svg" >
-          <label>About</label>
-          <% end %>
-      </div>
+    <div class="icon-bar four-up">
+      <%= link_to root_path, {controller: "states", action: "index", id: "home"}, class: "item" do %>
+        <img src="/assets/img/images/fi-home.svg" >
+        <label>Home</label>
+      <% end %>
+
+      <%= link_to info_index_path, {controller: "info", action: "index", id: "search"}, class: "item" do %>
+        <img src="/assets/img/images/fi-magnifying-glass.svg" >
+        <label>Search</label>
+      <% end %>
+
+      <%= link_to info_index_path, {controller: "info", action: "index", id: "share"}, class: "item" do %>
+        <img src="/assets/img/images/fi-share.svg" >
+        <label>Share</label>
+      <% end %>
+
+      <%= link_to info_index_path, {controller: "info", action: "index", id: "info"}, class: "item" do %>
+        <img src="/assets/img/images/fi-info.svg" >
+        <label>About</label>
+      <% end %>
     </div>
-
 
     <%= yield %>
     <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true %>
