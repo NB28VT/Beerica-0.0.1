@@ -1,11 +1,8 @@
 require 'factory_girl'
 
-FactoryGirl.define do  factory :city do
-    
-  end
-
+FactoryGirl.define do
   factory :state do
-    sequence(:name) {|n| "State of #{n}" }
+    sequence(:name) { | n | "State of #{n}" }
     breweries_per_capita 8
   end
 

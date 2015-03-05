@@ -1,5 +1,4 @@
 class BuildLocationArray
-
   def build_locations(breweries)
     location_array = []
 

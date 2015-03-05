@@ -18,28 +18,20 @@ class BreweryPerStateLoader
     # Initialize brewery per capita hash
     per_capita_hash = {}
     # Reads from CSV
-    brewery_data = CSV.foreach('state_population_data.csv', headers: true) do |row|
+    CSV.foreach('state_population_data.csv', headers: true) do |row|
       state = row[4]
       population = row[5].to_i
       # Calculates breweries per capita
-      breweries_in_state = @brewery_db.locations.all(region: state ).count
-      breweries_per_capita = (breweries_in_state.to_f)/(population/100000).to_f
+      breweries_in_state = @brewery_db.locations.all(region: state).count
+      breweries_per_capita = (breweries_in_state.to_f) / (population / 100000).to_f
       per_capita_hash[state] = breweries_per_capita.round(3)
     end
     per_capita_hash
   end
 
   # Helper method for loading breweries for each state. Called in state loader
-  # CAREFUL: THIS HITS API ONCE FORE EACH STATE. 400 REQUEST LIMIT
+  # CAREFUL: THIS HITS API ONCE FORE EACH STATE. 400 REQUEST LIMIT PER DAY
   def load_breweries_per_capita(state)
     @per_capita_hash[state]
   end
-
-
-
-
-
-
-
-
 end
