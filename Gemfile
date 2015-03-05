@@ -17,6 +17,7 @@ gem 'pg'
 gem 'brewery_db'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
