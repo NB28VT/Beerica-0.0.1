@@ -27,22 +27,22 @@
 
     <div class="icon-bar four-up">
       <%= link_to root_path, {controller: "states", action: "index", id: "home"}, class: "item" do %>
-        <img src="/assets/img/images/fi-home.svg" >
+        <%= image_tag "fi-home.svg" %>
         <label>Home</label>
       <% end %>
 
       <%= link_to info_index_path, {controller: "info", action: "index", id: "search"}, class: "item" do %>
-        <img src="/assets/img/images/fi-magnifying-glass.svg" >
+        <%= image_tag "fi-magnifying-glass.svg" %>
         <label>Search</label>
       <% end %>
 
       <%= link_to info_index_path, {controller: "info", action: "index", id: "share"}, class: "item" do %>
-        <img src="/assets/img/images/fi-share.svg" >
+        <%= image_tag "fi-share.svg" %>
         <label>Share</label>
       <% end %>
 
       <%= link_to info_index_path, {controller: "info", action: "index", id: "info"}, class: "item" do %>
-        <img src="/assets/img/images/fi-info.svg" >
+        <%= image_tag "fi-info.svg" %>
         <label>About</label>
       <% end %>
     </div>
