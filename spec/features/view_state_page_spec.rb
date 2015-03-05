@@ -22,7 +22,7 @@ Acceptance criteria:
   all_breweries = []
 
   # This may be slowing down tests
-  Brewery.where(state_id: state_id).each do |brewery|
+  Brewery.where(state_id: state_id).each do | brewery |
     all_breweries << brewery.name
   end
 

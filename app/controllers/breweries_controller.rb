@@ -9,7 +9,9 @@ class BreweriesController < ApplicationController
     @breweries = @state.breweries.sort_by &:name
     @cities = @state.cities.sort_by &:name
     location_builder = BuildLocationArray.new
-    @brewery_location_array = location_builder.build_locations(@breweries).to_json
+    @brewery_location_array = location_builder.build_locations(
+    @breweries
+    ).to_json
   end
 
   def show
@@ -19,5 +21,4 @@ class BreweriesController < ApplicationController
   def redirect
     redirect_to state_brewery_path(params[:id])
   end
-
 end
