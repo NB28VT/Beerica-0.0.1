@@ -17,13 +17,14 @@ gem 'brewery_db'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
+gem 'dotenv-rails'
+gem 'dotenv'
+
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'dotenv-rails'
-  gem 'dotenv'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
