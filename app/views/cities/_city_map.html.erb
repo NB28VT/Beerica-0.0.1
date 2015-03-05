@@ -1,0 +1,78 @@
+<div class= "hide-for-small large-5 columns" id="map-container">
+  <div id="map-canvas"></div>
+</div>
+
+<script type="text/javascript" >
+  var geocoder;
+  var map;
+
+  function initialize() {
+  geocoder = new google.maps.Geocoder();
+  codeAddress();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: 12,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+  var locations = <%= raw @brewery_location_array.as_json %>;
+  var infowindow = new google.maps.InfoWindow();
+
+   for (var i = 0; i < locations.length; i++) {
+       var marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map,
+         url: locations[i][3]
+       });
+
+       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+         return function() {
+           infowindow.setContent(locations[i][0]);
+           infowindow.open(map, marker);
+         }
+       })(marker, i));
+
+      google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = this.url;
+      });
+    }
+  }
+
+  function codeAddress() {
+    var address = " <%= @city.name %>, <%= @city.state.name %> ";
+    console.log(address);
+    geocoder.geocode( { 'address': address }, function(results, status) {
+
+    var ne = results[0].geometry.viewport.getNorthEast();
+    var sw = results[0].geometry.viewport.getSouthWest();
+
+    var bounds = new google.maps.LatLngBounds(sw, ne);
+    map.setCenter(bounds.getCenter());
+  });
+  }
+
+  function loadScript() {
+   var script = document.createElement('script');
+   script.type = 'text/javascript';
+   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
+       '&signed_in=true&callback=initialize';
+   document.body.appendChild(script);
+  }
+
+  window.onload = loadScript;
+
+// Listener on brewery dropdown. Links to brewery page on select
+
+  $(function(){
+    $('#breweries').bind('change', function () {
+      var state = <%= @city.state.id %>;
+       var url = "/states/" + state + "/breweries/" + $(this).val()
+        if (url) {
+            window.location.replace(url);
+        }
+        return false;
+    });
+  });
+
+</script>
