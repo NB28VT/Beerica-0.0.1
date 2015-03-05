@@ -1,14 +1,15 @@
-<h1><%= @city.name %></h1>
+<div class = "row">
+  <h1><%= @city.name %></h1>
 
-<div class="small-6 large-5 columns">
-  <h2>Select brewery:</h2>
-  <%= select_tag 'breweries', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
+  <div class="small-6 large-5 columns" id="brew-info">
+    <h2>Select brewery:</h2>
+    <%= select_tag 'breweries', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
+  </div>
+
+  <div class= "hide-for-small large-5 columns" id="map-container">
+    <div id="map-canvas"></div>
+  </div>
 </div>
-
-<div class= "hide-for-small large-7 columns" id="map-container">
-  <div id="map-canvas"></div>
-</div>
-
 <script type="text/javascript" >
   var geocoder;
   var map;
@@ -55,7 +56,6 @@
     var sw = results[0].geometry.viewport.getSouthWest();
 
     var bounds = new google.maps.LatLngBounds(sw, ne);
-    debugger;
     map.setCenter(bounds.getCenter());
   });
   }
