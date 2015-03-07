@@ -40,3 +40,8 @@ nav.top-bar.name {
 section.top-bar-section {
   display: inline-block;
 }
+
+.search-form{
+  background-color: #C9C2AF;
+  border-radius: 16px 16px;
+}
