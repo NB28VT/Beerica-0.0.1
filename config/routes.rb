@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :breweries, only: [:index, :show, :redirect]
     resources :cities, only: [:show]
   end
+  resources :search, only: [:index]
 end
