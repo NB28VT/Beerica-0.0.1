@@ -1,0 +1,12 @@
+<form name='form' action='/search' method='get'>
+  <input type='text' name='query'>
+  <button type='submit'>Search</button>
+</form>
+
+<% if @brewery_results %>
+  <ul>
+    <% @brewery_results.each do |result| %>
+      <li><%= link_to result.name, state_brewery_path(result.state_id, result.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
