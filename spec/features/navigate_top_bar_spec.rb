@@ -31,6 +31,7 @@ Acceptance criteria:
   scenario "The info page link brings the user to an info page", js: true do
     visit root_path
 
+
     click_on("info")
     expect(page).to have_content("Nathan Burgess")
   end

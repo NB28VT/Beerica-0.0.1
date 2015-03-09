@@ -43,6 +43,15 @@ Acceptance criteria:
 [ ] If a location is not available, the user will see a message
 
 ---
+As a user
+I would like to sign up for Beerica
+So I can track which breweries I visit
+Acceptance criteria:
+[ ] A user can create an account on Beerica
+[ ] A user can add a brewery to their list of visited breweries
+[ ] A user's profile page includes a map of breweries the user has visited
+
+---
 As a beer nut
 I would like to add information to the database
 So that I can give beer drinkers better info
@@ -51,6 +60,8 @@ Acceptance criteria:
 [ ] A user can add a new brewery to the database
 [ ] A user will get an error message if the brewery is already loaded
 [ ] A user can add new information to a brewery page
+[ ] A user must be signed in to add a brewery
+
 
 ---
 As Brewery DB
