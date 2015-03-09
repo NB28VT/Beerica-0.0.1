@@ -11,7 +11,20 @@ Acceptance criteria:
 ) do
 
   scenario "A user can create an account on Beerica" do
-    skip
+    user_count = User.count
+
+    visit new_user_registration_path
+
+    fill_in 'Username', with: 'bacon_pancakes123'
+    fill_in 'Email', with: 'pancakes123@example.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+
+    click_button 'Sign up'
+
+    expect(page).to have_content('Welcome! You have signed up successfully.')
+    expect(page).to have_content('Sign Out')
+
   end
 
   scenario "A user can add a brewery to their list of visited breweries" do
