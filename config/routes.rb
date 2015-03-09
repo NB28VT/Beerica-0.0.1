@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'states#index'
   resources :info, only: [:index]
   resources :states, only: [:index, :show] do
