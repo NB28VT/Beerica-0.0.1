@@ -10,10 +10,11 @@ Acceptance criteria:
 [ ] A user's profile page includes a map of breweries the user has visited
 ) do
 
-  scenario "A user can create an account on Beerica" do
+  scenario "A user can create an account on Beerica", js:true do
     user_count = User.count
 
-    visit new_user_registration_path
+    visit root_path
+    click_on 'register'
 
     fill_in 'Username', with: 'bacon_pancakes123'
     fill_in 'Email', with: 'pancakes123@example.com'
@@ -23,7 +24,7 @@ Acceptance criteria:
     click_button 'Sign up'
 
     expect(page).to have_content('Welcome! You have signed up successfully.')
-    expect(page).to have_content('Sign Out')
+    expect(User.count).to eq(user_count + 1)
 
   end
 
