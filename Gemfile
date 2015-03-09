@@ -19,6 +19,7 @@ gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
 gem 'dotenv'
 gem 'searchkick'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
