@@ -23,6 +23,8 @@ Acceptance criteria:
 
     click_button 'Sign up'
 
+    save_and_open_page
+
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(User.count).to eq(user_count + 1)
 
