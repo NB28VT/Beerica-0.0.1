@@ -37,13 +37,11 @@ Acceptance criteria:
   end
 
   scenario "A user can add a brewery to their list of visited breweries", js: true do
-    binding.pry
     new_user = FactoryGirl.create(:user)
+    login_as(new_user, scope: new_user)
 
-    login_as(new_user, scope: :user)
+    binding.pry
     visit state_brewery_path(state.id, brewery.id)
-
-    save_and_open_page
 
     click_on "I visited this brewery"
 
