@@ -9,9 +9,11 @@ Acceptance criteria:
 [ ] A user can add a brewery to their list of visited breweries
 [ ] A user's profile page includes a map of breweries the user has visited
 [ ] A user must be signed in to add a visited brewery
+[ ] A user can't add the same brewery twice
 ) do
 
-  brewery = Brewery.first
+
+  brewery = Brewery.build
   state_id = brewery.state_id
 
   # FactoryGirl build user instead of save to DB here
@@ -37,10 +39,14 @@ Acceptance criteria:
   scenario "A user can add a brewery to their list of visited breweries" do
     visit state_brewery_path(state_id, brewery.id)
 
-    click_on "Add to my breweries"
+    click_on "I visited this brewery"
 
-    expect(page).to have_content('Brewery added!')
+    # expect(page).to have_content('Brewery added!')
     expect(user.breweries).to eq(1)
+  end
+
+  scenario "A user can't add the same brewery twice" do
+    skip
   end
 
   scenario "A user must be signed in to add a visited brewery" do
