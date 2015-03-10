@@ -12,9 +12,8 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-
-  brewery = Brewery.build
-  state_id = brewery.state_id
+  state = FactoryGirl.create(:state)
+  brewery = FactoryGirl.create(:brewery, state_id: state.id)
 
   # FactoryGirl build user instead of save to DB here
   user = FactoryGirl.build(:user)
@@ -37,7 +36,7 @@ Acceptance criteria:
   end
 
   scenario "A user can add a brewery to their list of visited breweries" do
-    visit state_brewery_path(state_id, brewery.id)
+    visit state_brewery_path(state.id, brewery.id)
 
     click_on "I visited this brewery"
 
