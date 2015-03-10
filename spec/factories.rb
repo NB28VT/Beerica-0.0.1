@@ -2,17 +2,9 @@ require 'factory_girl'
 
 FactoryGirl.define do
 
-  sequence :username do |n|
-      "baconpancakes#{n}"
-  end
-
-  sequence :email do |n|
-    "baconpancakes#{n}@example.com"
-  end
-
   factory :user do
-    username
-    email
+    sequence(:username) {|n| "baconpancakes#{n}"}
+    sequence(:email) {|n| "baconpancakes#{n}@example.com"}
     password "makinbaconpancakes"
     password_confirmation "makinbaconpancakes"
   end

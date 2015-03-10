@@ -12,15 +12,14 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-
   state = FactoryGirl.create(:state)
   brewery = FactoryGirl.create(:brewery, state_id: state.id)
 
-  # FactoryGirl build user instead of save to DB here
-  user = FactoryGirl.build(:user)
-
   # Need to re-write test here if using factories
   scenario "A user can create an account on Beerica", js:true do
+    # FactoryGirl build user instead of save to DB here
+    user = FactoryGirl.build(:user)
+
     user_count = User.count
 
     visit root_path
@@ -37,13 +36,17 @@ Acceptance criteria:
     expect(User.count).to eq(user_count + 1)
   end
 
-  scenario "A user can add a brewery to their list of visited breweries" do
-    user = FactoryGirl.create(:user)
+  scenario "A user can add a brewery to their list of visited breweries", js: true do
+    binding.pry
+    new_user = FactoryGirl.create(:user)
 
-    login_as(user, scope: :user)
+    login_as(new_user, scope: :user)
     visit state_brewery_path(state.id, brewery.id)
 
+    save_and_open_page
+
     click_on "I visited this brewery"
+
 
     # expect(page).to have_content('Brewery added!')
     expect(user.breweries).to eq(1)

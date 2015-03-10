@@ -29,8 +29,7 @@
     <div id="reviews">
 
       <% if user_signed_in? %>
-      <!--  add create action route here-->
-        <%= form_for @user_brewery, action:  do |f| %>
+        <%= form_for @user_brewery,  url: (action: 'create') do |f| %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :brewery_id, value: @brewery.id %>
 

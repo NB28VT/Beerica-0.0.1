@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :cities, only: [:show]
   end
   resources :search, only: [:index]
+  resources :user_breweries, only: [:create]
 end
