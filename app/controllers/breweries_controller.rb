@@ -16,6 +16,7 @@ class BreweriesController < ApplicationController
 
   def show
     @brewery = Brewery.find(params[:id])
+    @user_brewery = UserBrewery.new
   end
 
   def redirect
