@@ -38,7 +38,7 @@ Acceptance criteria:
 
   scenario "A user can add a brewery to their list of visited breweries", js: true do
     new_user = FactoryGirl.create(:user)
-    login_as(new_user, scope: new_user)
+    login_as(new_user, scope: new_user, run_callbacks: false)
 
     binding.pry
     visit state_brewery_path(state.id, brewery.id)
