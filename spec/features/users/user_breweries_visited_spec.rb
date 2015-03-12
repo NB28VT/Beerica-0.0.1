@@ -12,9 +12,10 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-  state = FactoryGirl.create(:state)
-  brewery = FactoryGirl.create(:brewery, state_id: state.id)
-
+  before(:each) do
+    state = FactoryGirl.create(:state)
+    brewery = FactoryGirl.create(:brewery, state_id: state.id)
+  end  
   # Need to re-write test here if using factories
   scenario "A user can create an account on Beerica", js:true do
     # FactoryGirl build user instead of save to DB here
@@ -22,7 +23,8 @@ Acceptance criteria:
 
     user_count = User.count
 
-    visit root_path
+    visit state_brewery_path(state.id, brewery.id)
+
     click_on 'register'
 
     fill_in 'Username', with: user.username

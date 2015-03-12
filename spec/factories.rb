@@ -19,8 +19,6 @@ FactoryGirl.define do
     sequence(:state_id) { |n| n }
   end
 
-
-
   factory :brewery do
     name "Rock Art Brewery"
     sequence(:state_id) { |n| n }

@@ -17,10 +17,12 @@ Acceptance criteria:
 "
 ) do
 
-  state = FactoryGirl.create(:state)
-  city = FactoryGirl.create(:city, state_id: state.id)
-  brewery = FactoryGirl.create(:brewery, state_id: state.id, city_id: city.id)
 
+  before(:each) do
+    state = FactoryGirl.create(:state)
+    city = FactoryGirl.create(:city, state_id: state.id)
+    brewery = FactoryGirl.create(:brewery, state_id: state.id, city_id: city.id)
+  end  
 
   # all_breweries = []
   # This may be slowing down tests
@@ -41,7 +43,7 @@ Acceptance criteria:
 
     select(brewery.name, from: 'brewery')
 
-    expect(page).to have_content(brewery.website)
+    expect(page).to have_content(brewery.street_address)
   end
 
   scenario "The state page includes links to all breweries in the state" do
@@ -55,6 +57,7 @@ Acceptance criteria:
   end
 
   scenario "A user can look up a cities and see all of the breweries there", js: true do
+
     visit state_breweries_path(state.id)
     select(brewery.city.name, from: 'cities')
 
@@ -62,6 +65,6 @@ Acceptance criteria:
 
     select(brewery.name, from: 'breweries')
 
-    expect(page).to have_content("Website")
+    expect(page).to have_content(brewery.street_address)
   end
 end
