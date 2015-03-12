@@ -12,11 +12,11 @@ Acceptance criteria:
 [ ] If a location is not available, the user will see a message
 ) do
 
-  state_id = State.find_by(name: "Vermont").id
-  brewery = Brewery.find_by(name: "Rock Art Brewery")
+  state = FactoryGirl.create(:state)
+  brewery = FactoryGirl.create(:brewery, state_id: state.id)
 
   scenario "A user can visit a brewery's website if one is available", js: true do
-    visit state_brewery_path(state_id, brewery.id)
+    visit state_brewery_path(state.id, brewery.id)
 
     click_link "Website"
 

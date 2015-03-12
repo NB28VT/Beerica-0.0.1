@@ -14,6 +14,13 @@ FactoryGirl.define do
     breweries_per_capita 8
   end
 
+  factory :city do
+    name "Beerlington"
+    sequence(:state_id) { |n| n }
+  end
+
+
+
   factory :brewery do
     name "Rock Art Brewery"
     sequence(:state_id) { |n| n }

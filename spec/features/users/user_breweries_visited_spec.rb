@@ -40,7 +40,6 @@ Acceptance criteria:
     new_user = FactoryGirl.create(:user)
     login_as(new_user, scope: new_user, run_callbacks: false)
 
-    binding.pry
     visit state_brewery_path(state.id, brewery.id)
 
     click_on "I visited this brewery"
