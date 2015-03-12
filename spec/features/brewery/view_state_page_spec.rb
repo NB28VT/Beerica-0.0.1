@@ -19,10 +19,10 @@ Acceptance criteria:
 
 
   before(:each) do
-    state = FactoryGirl.create(:state)
-    city = FactoryGirl.create(:city, state_id: state.id)
-    brewery = FactoryGirl.create(:brewery, state_id: state.id, city_id: city.id)
-  end  
+    @state = FactoryGirl.create(:state)
+    @city = FactoryGirl.create(:city, state_id: @state.id)
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city_id: @city.id)
+  end
 
   # all_breweries = []
   # This may be slowing down tests
@@ -33,17 +33,17 @@ Acceptance criteria:
   # end
 
   scenario "A user can visit a state info page", js: true do
-    visit state_breweries_path(state.id)
+    visit state_breweries_path(@state.id)
 
-    expect(page).to have_content(state.name)
+    expect(page).to have_content(@state.name)
   end
 
   scenario "A user can click on a brewery and get information on the brewery", js: true do
-    visit state_breweries_path(state.id)
+    visit state_breweries_path(@state.id)
 
-    select(brewery.name, from: 'brewery')
+    select(@brewery.name, from: 'brewery')
 
-    expect(page).to have_content(brewery.street_address)
+    expect(page).to have_content(@brewery.street_address)
   end
 
   scenario "The state page includes links to all breweries in the state" do
@@ -58,13 +58,13 @@ Acceptance criteria:
 
   scenario "A user can look up a cities and see all of the breweries there", js: true do
 
-    visit state_breweries_path(state.id)
-    select(brewery.city.name, from: 'cities')
+    visit state_breweries_path(@state.id)
+    select(@brewery.city.name, from: 'cities')
 
-    expect(page).to have_content(brewery.name)
+    expect(page).to have_content(@brewery.name)
 
-    select(brewery.name, from: 'breweries')
+    select(@brewery.name, from: 'breweries')
 
-    expect(page).to have_content(brewery.street_address)
+    expect(page).to have_content(@brewery.street_address)
   end
 end

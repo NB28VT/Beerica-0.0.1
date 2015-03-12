@@ -13,9 +13,9 @@ Acceptance criteria:
 ) do
 
   before(:each) do
-    state = FactoryGirl.create(:state)
-    brewery = FactoryGirl.create(:brewery, state_id: state.id)
-  end  
+    @state = FactoryGirl.create(:state)
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
+  end
   # Need to re-write test here if using factories
   scenario "A user can create an account on Beerica", js:true do
     # FactoryGirl build user instead of save to DB here
@@ -23,7 +23,7 @@ Acceptance criteria:
 
     user_count = User.count
 
-    visit state_brewery_path(state.id, brewery.id)
+    visit state_brewery_path(@state.id, @brewery.id)
 
     click_on 'register'
 
@@ -42,7 +42,7 @@ Acceptance criteria:
     new_user = FactoryGirl.create(:user)
     login_as(new_user, scope: new_user, run_callbacks: false)
 
-    visit state_brewery_path(state.id, brewery.id)
+    visit state_brewery_path(@state.id, @brewery.id)
 
     click_on "I visited this brewery"
 

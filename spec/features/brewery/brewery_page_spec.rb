@@ -13,15 +13,15 @@ Acceptance criteria:
 ) do
 
   before(:each) do
-    state = FactoryGirl.create(:state)
-    brewery = FactoryGirl.create(:brewery, state_id: state.id)
+    @state = FactoryGirl.create(:state)
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
   end
 
   scenario "A user can visit a brewery's website if one is available", js: true do
-    visit state_brewery_path(state.id, brewery.id)
+    visit state_brewery_path(@state.id, @brewery.id)
 
     click_link "Website"
 
-    current_url.should == brewery.website
+    current_url.should == @brewery.website
   end
 end
