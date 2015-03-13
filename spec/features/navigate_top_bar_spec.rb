@@ -13,7 +13,7 @@ Acceptance criteria:
 
   before(:each) do
     @state = FactoryGirl.create(:state)
-    @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
+    @brewery = FactoryGirl.create(:brewery, state: @state)
   end
 
   scenario "The home page link returns the user to the state index page", js: true do
@@ -34,7 +34,7 @@ Acceptance criteria:
   end
 
   scenario "The info page link brings the user to an info page", js: true do
-    visit state_brewery_path(@state.id, @brewery.id)
+    visit state_brewery_path(@brewery.state, @brewery)
 
     click_on("info")
     expect(page).to have_content("Nathan Burgess")

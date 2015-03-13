@@ -19,7 +19,7 @@ FactoryGirl.define do
     sequence(:state_id) { |n| n }
   end
 
-  factory :brewery do
+  factory :brewery, parent: :state do
     name "Rock Art Brewery"
     sequence(:state_id) { |n| n }
     sequence(:city_id) { |n| n }
