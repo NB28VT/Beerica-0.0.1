@@ -28,17 +28,7 @@
 
     <div id="reviews">
 
-      <% if user_signed_in? %>
-        <%= form_for @user_brewery,  url: (action: 'create') do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :brewery_id, value: @brewery.id %>
-
-          <%= f.submit "I visited this brewery", class: "button radius" %>
-        <% end %>
-
-      <% else %>
-        <h4>Please sign up or sign in to add to your breweries</h4>
-      <% end %>
+      <h4>Please sign up or sign in to add to your breweries</h4>
 
       <h5>Reviews coming soon!</h5>
     </div>

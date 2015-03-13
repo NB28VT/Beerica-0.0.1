@@ -18,7 +18,7 @@ Acceptance criteria:
   end
 
   scenario "A user can visit a brewery's website if one is available", js: true do
-    visit state_brewery_path(@state.id, @brewery.id)
+    visit state_brewery_path(@state, @brewery)
 
     click_link "Website"
 

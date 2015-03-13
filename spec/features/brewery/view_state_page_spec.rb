@@ -21,7 +21,7 @@ Acceptance criteria:
   before(:each) do
     @state = FactoryGirl.create(:state)
     @city = FactoryGirl.create(:city, state_id: @state.id)
-    @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city_id: @city.id)
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city: @city)
   end
 
   # all_breweries = []
