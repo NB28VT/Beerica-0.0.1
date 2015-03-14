@@ -31,6 +31,13 @@ Acceptance criteria:
 [ ] A user can search for a brewery near a specific location
 [ ] A user can search for a brewery near their current location
 
+As a user
+I would like to search for a brewery by name
+So that I can look up its information quickly
+Acceptance criteria:
+[ ] A user can visit the search page, look up a brewery and get to the brewery's page
+
+
 ---
 As a user
 I would like to see where a brewery is located
