@@ -1,5 +1,5 @@
 class Brewery < ActiveRecord::Base
-  searchkick
+  # searchkick
 
   belongs_to :state
   belongs_to :city
