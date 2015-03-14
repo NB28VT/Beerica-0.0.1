@@ -12,9 +12,14 @@ Acceptance criteria:
 [ ] If a location is not available, the user will see a message
 ) do
 
-  before(:each) do
+  before(:all) do
     @state = FactoryGirl.create(:state)
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
+  end
+
+  after(:all) do
+    @state.destroy!
+    @brewery.destroy!
   end
 
   scenario "A user can visit a brewery's website if one is available", js: true do

@@ -12,25 +12,36 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-  before(:each) do
+  before(:all) do
     @state = FactoryGirl.create(:state)
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
+    @user = FactoryGirl.build(:user)
+    @new_user = FactoryGirl.create(:user)
   end
+
+  after(:all) do
+    @state.destroy!
+    @brewery.destroy!
+    @user.destroy!
+    @new_user.destory!
+  end
+
   # Need to re-write test here if using factories
-  scenario "A user can create an account on Beerica", js:true do
+  scenario "A user can create an account on Beerica", js: true do
     # FactoryGirl build user instead of save to DB here
-    user = FactoryGirl.build(:user)
 
     user_count = User.count
 
-    visit state_brewery_path(@state, @brewery)
+    # visit state_brewery_path(@state, @brewery)
+    #
+    # click_on 'register'
 
-    click_on 'register'
+    visit new_user_registration_path
 
-    fill_in 'Username', with: user.username
-    fill_in 'Email', with:  user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password
+    fill_in 'Username', with: @user.username
+    fill_in 'Email', with:  @user.email
+    fill_in 'Password', with: @user.password
+    fill_in 'Password confirmation', with: @user.password
 
     click_button 'Sign up'
 
@@ -39,7 +50,7 @@ Acceptance criteria:
   end
 
   scenario "A user can add a brewery to their list of visited breweries", js: true do
-    new_user = FactoryGirl.create(:user)
+    new_user = @new_user
     login_as(new_user, scope: new_user, run_callbacks: false)
 
     visit state_brewery_path(@state, @brewery)

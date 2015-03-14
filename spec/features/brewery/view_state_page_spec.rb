@@ -17,11 +17,16 @@ Acceptance criteria:
 "
 ) do
 
-
-  before(:each) do
+  before(:all) do
     @state = FactoryGirl.create(:state)
     @city = FactoryGirl.create(:city, state_id: @state.id)
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city: @city)
+  end
+
+  after(:all) do
+    @state.destroy!
+    @city.destroy!
+    @brewery.destroy!
   end
 
   # all_breweries = []
