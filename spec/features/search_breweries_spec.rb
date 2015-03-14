@@ -18,6 +18,8 @@ Acceptance criteria:
 
     fill_in("search", with: "Rock Art")
 
+    click_on "search"
+
     click_on "Rock Art Brewery"
 
     current_path.should == state_brewery_path(state, brewery)
