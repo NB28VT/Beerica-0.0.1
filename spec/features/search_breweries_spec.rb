@@ -9,6 +9,17 @@ Acceptance criteria:
 ) do
 
   scenario "A user can visit the search page, look up a brewery and get to the brewery's page", js: true do
-    skip
+    state = State.where(name: "Vermont").first
+    brewery = Brewery.where(name: "Rock Art Brewery").first
+
+    visit root_path
+
+    click_on "search"
+
+    fill_in("search", with: "Rock Art")
+
+    click_on "Rock Art Brewery"
+
+    current_path.should == state_brewery_path(state, brewery)
   end
 end
