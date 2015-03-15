@@ -1,13 +1,14 @@
 <div class = "row">
-  <form class= "small-12 large-6 columns search-form" name='form' action='/search' method='get'>
+  <form class= "small-12 large-6 columns search-form">
     <fieldset>
       <legend>Brewery Search</legend>
-
-      <label>Search
-        <input type="text" name='query' placeholder="Enter brewery name, city or info here">
+      <label>
+        <%= form_tag(search_index_path, method: "get") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Enter brewery name here" %>
+          <%= submit_tag "Search", name: nil, id: "search-form", style: 'background-color: #0F7D46' %>
+        <% end %>
       </label>
-        <button type='submit' style='background-color: #0F7D46;'>Search</button>
-    </fieldset>
+    </fiedlset>
   </form>
 </div>
 
