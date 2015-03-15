@@ -16,9 +16,9 @@ Acceptance criteria:
 
     click_on "search"
 
-    fill_in("search", with: "Rock Art")
+    fill_in("search", with: "Rock Art Brewery")
 
-    click_on "search"
+    click_on "search-form"
 
     click_on "Rock Art Brewery"
 
