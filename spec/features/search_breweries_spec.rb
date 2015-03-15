@@ -15,11 +15,8 @@ Acceptance criteria:
     visit root_path
 
     click_on "search"
-
     fill_in("search", with: "Rock Art Brewery")
-
     click_on "search-form"
-
     click_on "Rock Art Brewery"
 
     current_path.should == state_brewery_path(state, brewery)

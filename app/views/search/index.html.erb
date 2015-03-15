@@ -1,10 +1,16 @@
 <div class = "row">
-  <%= form_tag(search_index_path, method: "get") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Enter brewery name here" %>
-    <%= submit_tag "search", name: nil, id: "search-form" %>
-  <% end %>
+  <form class= "small-12 large-6 columns search-form">
+    <fieldset>
+      <legend>Brewery Search</legend>
+      <label>
+        <%= form_tag(search_index_path, method: "get") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Enter brewery name here" %>
+          <%= submit_tag "Search", name: nil, id: "search-form", style: 'background-color: #0F7D46' %>
+        <% end %>
+      </label>
+    </fiedlset>
+  </form>
 </div>
-
 
 <div class ="row">
   <% if @brewery_results %>
