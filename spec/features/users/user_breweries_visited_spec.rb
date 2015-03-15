@@ -12,19 +12,19 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-  before(:all) do
+  before(:each) do
     @state = FactoryGirl.create(:state)
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
     @user = FactoryGirl.build(:user)
     @new_user = FactoryGirl.create(:user)
   end
 
-  after(:all) do
-    @state.destroy!
-    @brewery.destroy!
-    @user.destroy!
-    @new_user.destory!
-  end
+  # after(:all) do
+  #   @state.destroy!
+  #   @brewery.destroy!
+  #   @user.destroy!
+  #   @new_user.destory!
+  # end
 
   # Need to re-write test here if using factories
   scenario "A user can create an account on Beerica", js: true do

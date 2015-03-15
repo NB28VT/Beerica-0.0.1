@@ -11,15 +11,15 @@ Acceptance criteria:
 [x] The info page link brings the user to an info page
 ) do
 
-  before(:all) do
+  before(:each) do
     @state = FactoryGirl.create(:state)
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id)
   end
 
-  after(:all) do
-    @state.destroy!
-    @brewery.destroy!
-  end
+  # after(:all) do
+  #   @state.destroy!
+  #   @brewery.destroy!
+  # end
 
   scenario "The home page link returns the user to the state index page", js: true do
     skip
