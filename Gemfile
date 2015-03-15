@@ -30,6 +30,7 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 
   gem 'web-console', '~> 2.0'
   gem 'spring'
