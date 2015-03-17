@@ -15,7 +15,7 @@ Acceptance criteria:
 
   scenario "A user can create an account on Beerica" do
     skip
-    # FactoryGirl build user instead of save to DB here
+    # # FactoryGirl build user instead of save to DB here
     # user = FactoryGirl.build(:user)
     #
     # user_count = User.count
@@ -28,33 +28,39 @@ Acceptance criteria:
     #
     # click_button 'Sign up'
     #
-    # expect(page).to have_content('Welcome! You have signed up successfully.')
-    # expect(User.count).to eq(user_count + 1)
-
-    # Despite database cleaner, selenium may be causing persisiting user.
-    # Manually destroying for now.
-    # User.first.destroy!
+    # # expect(page).to have_content("Welcome! You have signed up successfully.")
+    #
+    #
+    # # Despite database cleaner, selenium may be causing persisiting user.
+    # # Attempting to delete in test
+    #
+    # visit edit_user_registration_path
+    #
+    # click_button 'Cancel my account'
+    #
+    # expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
   end
 
   scenario "A user can add a brewery to their list of visited breweries", js: true do
-    skip
-    # new_user = FactoryGirl.create(:user)
-    # state = FactoryGirl.create(:state)
-    # brewery = FactoryGirl.create(:brewery, state_id: state.id)
-    #
-    # login_as(new_user, scope: new_user, run_callbacks: false)
-    #
-    # visit state_brewery_path(state, brewery)
-    #
-    # click_on "I visited this brewery"
-    #
-    # # expect(page).to have_content('Brewery added!')
-    # expect(user.breweries).to eq(1)
-    # # Despite database cleaner, selenium may be causing persisiting data.
-    # # Manually destroying for now.
-    # new_user.destroy!
-    # state.destroy!
-    # brewery.destory!
+    new_user = FactoryGirl.create(:user)
+    state = FactoryGirl.create(:state)
+    brewery = FactoryGirl.create(:brewery, state_id: state.id)
+
+    login_as(new_user, scope: new_user, run_callbacks: false)
+
+    visit state_brewery_path(state, brewery)
+
+    save_and_open_page
+
+    click_on "I visited this brewery"
+
+    # expect(page).to have_content('Brewery added!')
+    expect(user.breweries).to eq(1)
+    # Despite database cleaner, selenium may be causing persisiting data.
+    # Manually destroying for now.
+    new_user.destroy!
+    state.destroy!
+    brewery.destory!
   end
 
   scenario "A user can't add the same brewery twice" do

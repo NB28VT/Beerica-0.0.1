@@ -30,6 +30,12 @@
 
       <h4>Please sign up or sign in to add to your breweries</h4>
 
+      <% if user_signed_in? %>
+        <h1>test</h1>
+        <%= button_to "I visited this brewery", user_breweries_path(user: current_user, brewery: @brewery, method: :post) %>
+      <% end %>
+
+
       <h5>Reviews coming soon!</h5>
     </div>
   </div>
