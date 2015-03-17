@@ -14,21 +14,20 @@ Acceptance criteria:
   # PERSISTENCE PROBLEM WITH USER SIGN UP TEST. POSSIBLE SELENIUM ISSUE
 
   scenario "A user can create an account on Beerica" do
-    skip
     # # FactoryGirl build user instead of save to DB here
-    # user = FactoryGirl.build(:user)
-    #
-    # user_count = User.count
-    # visit new_user_registration_path
-    #
-    # fill_in 'Username', with: user.username
-    # fill_in 'Email', with:  user.email
-    # fill_in 'Password', with: user.password
-    # fill_in 'Password confirmation', with: user.password
-    #
-    # click_button 'Sign up'
-    #
-    # # expect(page).to have_content("Welcome! You have signed up successfully.")
+    user = FactoryGirl.build(:user)
+
+    user_count = User.count
+    visit new_user_registration_path
+
+    fill_in 'Username', with: user.username
+    fill_in 'Email', with:  user.email
+    fill_in 'Password', with: user.password
+    fill_in 'Password confirmation', with: user.password
+
+    click_button 'Sign up'
+
+    expect(page).to have_content("Welcome! You have signed up successfully.")
     #
     #
     # # Despite database cleaner, selenium may be causing persisiting user.
@@ -50,17 +49,15 @@ Acceptance criteria:
 
     visit state_brewery_path(state, brewery)
 
-    save_and_open_page
-
     click_on "I visited this brewery"
 
     # expect(page).to have_content('Brewery added!')
     expect(user.breweries).to eq(1)
     # Despite database cleaner, selenium may be causing persisiting data.
     # Manually destroying for now.
-    new_user.destroy!
-    state.destroy!
-    brewery.destory!
+    # new_user.destroy!
+    # state.destroy!
+    # brewery.destory!
   end
 
   scenario "A user can't add the same brewery twice" do
