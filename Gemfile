@@ -18,7 +18,6 @@ gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
 gem 'dotenv'
-gem 'searchkick'
 
 group :development, :test do
   gem 'byebug'
