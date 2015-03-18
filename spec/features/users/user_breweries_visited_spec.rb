@@ -40,12 +40,19 @@ Acceptance criteria:
     # expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
   end
 
-  scenario "A user can add a brewery to their list of visited breweries", js: true do
+  scenario "A user can add a brewery to their list of visited breweries" do
     new_user = FactoryGirl.create(:user)
     state = FactoryGirl.create(:state)
     brewery = FactoryGirl.create(:brewery, state_id: state.id)
 
-    login_as(new_user, scope: new_user, run_callbacks: false)
+    login_as(new_user, scope: new_user)
+
+    visit new_user_session_path
+
+    fill_in 'Email', with:  new_user.email
+    fill_in 'Password', with: new_user.password
+
+    click_button 'Log in'
 
     visit state_brewery_path(state, brewery)
 
@@ -53,11 +60,6 @@ Acceptance criteria:
 
     # expect(page).to have_content('Brewery added!')
     expect(user.breweries).to eq(1)
-    # Despite database cleaner, selenium may be causing persisiting data.
-    # Manually destroying for now.
-    # new_user.destroy!
-    # state.destroy!
-    # brewery.destory!
   end
 
   scenario "A user can't add the same brewery twice" do

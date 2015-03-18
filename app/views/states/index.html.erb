@@ -4,4 +4,7 @@
   <h1>Breweries per capita: Select state</h1>
 </div>
 
-<%= render "state_map" %>
+
+<% if @states %>
+  <%= render "state_map" %>
+<% end %>

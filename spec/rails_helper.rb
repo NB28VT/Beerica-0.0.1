@@ -9,12 +9,17 @@ require 'dotenv'
 include Warden::Test::Helpers
 Warden.test_mode!
 
-
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.include Warden::Test::Helpers, :type => :request
+
+  config.include Devise::TestHelpers, type: :controller
+
+  config.after(:each) { Warden.test_reset! }
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
@@ -36,8 +41,13 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+
   #Switched to false to allow for database cleaner support
   config.use_transactional_fixtures = false
 
   config.infer_spec_type_from_file_location!
+end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
 end
