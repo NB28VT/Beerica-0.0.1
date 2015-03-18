@@ -28,16 +28,6 @@ Acceptance criteria:
     click_button 'Sign up'
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
-    #
-    #
-    # # Despite database cleaner, selenium may be causing persisiting user.
-    # # Attempting to delete in test
-    #
-    # visit edit_user_registration_path
-    #
-    # click_button 'Cancel my account'
-    #
-    # expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
   end
 
   scenario "A user can add a brewery to their list of visited breweries" do
@@ -58,8 +48,7 @@ Acceptance criteria:
 
     click_on "I visited this brewery"
 
-    # expect(page).to have_content('Brewery added!')
-    expect(user.breweries).to eq(1)
+    expect(new_user.breweries.count).to eq(1)
   end
 
   scenario "A user can't add the same brewery twice" do
