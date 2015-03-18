@@ -18,7 +18,7 @@ gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails'
 gem 'dotenv'
-# gem 'searchkick'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 
   gem 'web-console', '~> 2.0'
   gem 'spring'

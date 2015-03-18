@@ -17,6 +17,13 @@
   </head>
 
   <body>
+
+    <%- flash.each do |key, value| -%>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <%- end -%>
+
     <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: large">
       <ul class="title-area">
         <li class="name">
@@ -36,15 +43,16 @@
         <label>Search</label>
       <% end %>
 
-      <%= link_to info_index_path, {controller: "info", action: "index", id: "share"}, class: "item" do %>
-        <%= image_tag "fi-share.svg" %>
-        <label>Share</label>
-      <% end %>
-
       <%= link_to info_index_path, {controller: "info", action: "index", id: "info"}, class: "item" do %>
         <%= image_tag "fi-info.svg" %>
         <label>About</label>
       <% end %>
+
+      <%= link_to info_index_path, {controller: "info", action: "index", id: "info-2"}, class: "item" do %>
+        <%= image_tag "fi-pencil.svg" %>
+        <label>Sign In/Sign Up</label>
+      <% end %>
+
     </div>
 
     <%= yield %>
