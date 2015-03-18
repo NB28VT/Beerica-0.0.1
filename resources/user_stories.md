@@ -31,6 +31,13 @@ Acceptance criteria:
 [ ] A user can search for a brewery near a specific location
 [ ] A user can search for a brewery near their current location
 
+As a user
+I would like to search for a brewery by name
+So that I can look up its information quickly
+Acceptance criteria:
+[ ] A user can visit the search page, look up a brewery and get to the brewery's page
+
+
 ---
 As a user
 I would like to see where a brewery is located
@@ -43,6 +50,18 @@ Acceptance criteria:
 [ ] If a location is not available, the user will see a message
 
 ---
+As a user
+I would like to sign up for Beerica
+So I can track which breweries I visit
+Acceptance criteria:
+[x] A user can create an account on Beerica
+[ ] A user can add a brewery to their list of visited breweries
+[ ] A user's profile page includes a map of breweries the user has visited
+[ ] A user must be signed in to add a visited brewery
+[ ] A user can't add the same brewery twice
+
+
+---
 As a beer nut
 I would like to add information to the database
 So that I can give beer drinkers better info
@@ -51,6 +70,8 @@ Acceptance criteria:
 [ ] A user can add a new brewery to the database
 [ ] A user will get an error message if the brewery is already loaded
 [ ] A user can add new information to a brewery page
+[ ] A user must be signed in to add a brewery
+
 
 ---
 As Brewery DB
