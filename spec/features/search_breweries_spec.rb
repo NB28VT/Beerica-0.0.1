@@ -8,10 +8,15 @@ Acceptance criteria:
 [ ] A user can visit the search page, look up a brewery and get to the brewery's page
 ) do
 
-  scenario "A user can visit the search page, look up a brewery and get to the brewery's page", js: true do
-    state = State.where(name: "Vermont").first
-    brewery = Brewery.where(name: "Rock Art Brewery").first
+  before(:each) do
+    @state = FactoryGirl.create(:state)
+    @city = FactoryGirl.create(:city, state_id: @state.id)
+    @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city: @city)
+  end
 
+  scenario "A user can visit the search page, look up a brewery and get to the brewery's page" do
+    state = @state
+    brewery = @brewery
     visit root_path
 
     click_on "search"
