@@ -23,21 +23,7 @@ Acceptance criteria:
     @brewery = FactoryGirl.create(:brewery, state_id: @state.id, city: @city)
   end
 
-  # after(:all) do
-  #   @state.destroy!
-  #   @city.destroy!
-  #   @brewery.destroy!
-  # end
-
-  # all_breweries = []
-  # This may be slowing down tests
-  # Removed for now: test database is not seeded
-
-  # Brewery.where(state_id: state_id).each do | brewery |
-  #   all_breweries << brewery.name
-  # end
-
-  scenario "A user can visit a state info page", js: true do
+  scenario "A user can visit a state info page" do
     visit state_breweries_path(@state.id)
 
     expect(page).to have_content(@state.name)
@@ -54,11 +40,6 @@ Acceptance criteria:
   scenario "The state page includes links to all breweries in the state" do
     # skipping because highmaps won't load without seeded test db
     skip
-    # visit state_breweries_path(state_id)
-    #
-    # all_breweries.each do |brewery_name|
-    #   expect(page).to have_content(brewery_name)
-    # end
   end
 
   scenario "A user can look up a cities and see all of the breweries there", js: true do

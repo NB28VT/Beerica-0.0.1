@@ -11,10 +11,7 @@ Acceptance criteria:
 [ ] A user can't add the same brewery twice
 ) do
 
-  # PERSISTENCE PROBLEM WITH USER SIGN UP TEST. POSSIBLE SELENIUM ISSUE
-
   scenario "A user can create an account on Beerica" do
-    # # FactoryGirl build user instead of save to DB here
     user = FactoryGirl.build(:user)
 
     user_count = User.count
