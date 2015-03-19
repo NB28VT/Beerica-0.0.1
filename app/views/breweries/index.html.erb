@@ -1,11 +1,11 @@
 <div class = "row">
-  <h1><%= @state.name %></h1>
-
-  <div class="small-6 large-5 columns">
+  <div class="small-12 large-5 columns">
+    <h1><%= @state.name %></h1>
     <h2>Search by brewery:</h2>
     <%= select_tag 'brewery', options_from_collection_for_select(@breweries, 'id', 'name'), include_blank: true %>
     <h2>Search by city:</h2>
     <%= select_tag 'cities', options_from_collection_for_select(@cities, 'id', 'name'), include_blank: true%>
+
   </div>
 
   <% if @brewery_location_array %>

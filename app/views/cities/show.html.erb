@@ -1,9 +1,11 @@
 <div class = "row">
-  <h1><%= @city.name %></h1>
+  <div class="small-12 large-5 columns" id="brew-info">
+    <h1><%= @city.name %></h1>
 
-  <div class="small-6 large-5 columns" id="brew-info">
     <h2>Select brewery:</h2>
     <%= select_tag 'breweries', options_from_collection_for_select(@city.breweries, 'id', 'name'), include_blank: true%>
+
+    <%= link_to "#{@city.state.name} Page", state_breweries_path(@city.state), class: "button radius" %>
   </div>
 
   <%= render "city_map" %>

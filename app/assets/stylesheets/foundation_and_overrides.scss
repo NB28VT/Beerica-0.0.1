@@ -447,8 +447,8 @@ $body-bg: #F6FAE9;
 // We use these to control button border and hover styles.
 // $button-border-width: 0px;
 // $button-border-style: solid;
-// $button-bg-color: $primary-color;
-// $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
+$button-bg-color: #0F7D46;
+$button-bg-hover: #7FE376;
 // $button-border-color: $button-bg-hover;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
@@ -680,7 +680,6 @@ $body-bg: #F6FAE9;
 
 // 12. Icon Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-
 // We use these to style the icon-bar and items
 // $include-html-icon-bar-classes: $include-html-classes;
 $icon-bar-bg: #0F7D46;

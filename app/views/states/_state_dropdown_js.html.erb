@@ -1,0 +1,12 @@
+<script>
+$(function(){
+  $('#states').bind('change', function () {
+     var url = "/states/" + $(this).val() + "/breweries/"
+      if (url) {
+          window.location.replace(url);
+      }
+      return false;
+  });
+});
+
+</script>
