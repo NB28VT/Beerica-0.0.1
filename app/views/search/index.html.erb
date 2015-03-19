@@ -1,25 +1,29 @@
 <div class = "row">
-  <form class= "small-12 large-6 columns search-form">
-    <fieldset>
-      <legend>Brewery Search</legend>
-      <label>
-        <%= form_tag(search_index_path, method: "get") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Enter brewery name here" %>
-          <%= submit_tag "Search", name: nil, id: "search-form", style: 'background-color: #0F7D46' %>
-        <% end %>
-      </label>
-    </fiedlset>
-  </form>
+  <div class="large-12 columns">
+    <form class= "small-12 large-6 columns search-form">
+      <fieldset>
+        <legend>Brewery Search</legend>
+        <label>
+          <%= form_tag(search_index_path, method: "get") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Enter brewery name here" %>
+            <%= submit_tag "Search", name: nil, id: "search-form", style: 'background-color: #0F7D46' %>
+          <% end %>
+        </label>
+      </fiedlset>
+    </form>
+  </div>
 </div>
 
 <div class ="row">
-  <% if @brewery_results %>
-    <ul>
-      <% @brewery_results.each do |result| %>
-        <li>
-          <%= link_to "#{result.name} - #{result.city.name}, #{result.state.name}", state_brewery_path(result.state_id, result.id) %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div class="large-12 columns">
+    <% if @brewery_results %>
+      <ul>
+        <% @brewery_results.each do |result| %>
+          <li>
+            <%= link_to "#{result.name} - #{result.city.name}, #{result.state.name}", state_brewery_path(result.state_id, result.id) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
