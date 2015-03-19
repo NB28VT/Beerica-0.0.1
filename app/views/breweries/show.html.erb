@@ -29,9 +29,6 @@
     <hr>
 
     <div id="reviews">
-
-      <h4>Please sign up or sign in to add to your breweries</h4>
-
       <% if user_signed_in? %>
         <%= button_to "I visited this brewery", user_breweries_path(brewery_id: @brewery.id, method: :post) %>
       <% end %>

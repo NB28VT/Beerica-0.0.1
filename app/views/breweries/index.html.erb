@@ -6,8 +6,6 @@
     <h2>Search by city:</h2>
     <%= select_tag 'cities', options_from_collection_for_select(@cities, 'id', 'name'), include_blank: true%>
 
-    <%= link_to "States Page", states_path, class: "button radius" %>
-
   </div>
 
   <% if @brewery_location_array %>
