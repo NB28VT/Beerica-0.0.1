@@ -56,11 +56,21 @@
         <label>About</label>
       <% end %>
 
-      <%= link_to info_index_path, {controller: "info", action: "index", id: "info-2"}, class: "item" do %>
-        <%= image_tag "fi-pencil.svg" %>
-        <label>Sign In/Sign Up</label>
-      <% end %>
+      <% if user_signed_in? %>
 
+        <%= link_to info_index_path, {controller: "info", action: "index", id: "info-2"}, class: "item" do %>
+          <%= image_tag "fi-pencil.svg" %>
+          <label>Log out</label>
+        <% end %>
+
+      <% else %>
+
+        <%= link_to info_index_path, {controller: "info", action: "index", id: "info-2"}, class: "item" do %>
+          <%= image_tag "fi-pencil.svg" %>
+          <label>Log In</label>
+        <% end %>
+
+      <% end %>
     </div>
 
     <%= yield %>
