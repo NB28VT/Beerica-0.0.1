@@ -3,7 +3,7 @@ class StatesController < ApplicationController
     map = Map.new
     @per_capita_hash = map.breweries_per_capita
 
-    if State.count == 51
+    if State.count >= 51
       @states = State.all
     end
   end

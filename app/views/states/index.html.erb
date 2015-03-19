@@ -1,8 +1,17 @@
-<div id= "map-label" class = "map-label large-12.columns">
-  <h1>Breweries per capita: Select state</h1>
-</div>
-
 
 <% if @states %>
+  <div class="small-12 columns hide-for-large hide-for-medium">
+    <h1>Welcome to Beerica!</h1>
+
+    <%= image_tag("beer-collection.png")%>
+
+    <p>Beerica is a mapping of nearly 5,000 breweries around the United States.</p>
+
+    <h3>Search by state to begin:</h3>
+    <%= select_tag 'states', options_from_collection_for_select(@states, 'id', 'name'), include_blank: true %>
+  </div>
+
   <%= render "state_map" %>
 <% end %>
+
+<%= render "state_dropdown_js" %>
