@@ -24,6 +24,8 @@
       <% end %>
     </ul>
 
+    <%= link_to "Return to #{@brewery.state.name} Page", state_breweries_path(@brewery.state), class: "button radius" %>
+
     <hr>
 
     <div id="reviews">
@@ -37,6 +39,7 @@
       <h5>Reviews coming soon!</h5>
     </div>
   </div>
+
 
   <div>
     <% if ( (@brewery.latitude != nil) && (@brewery.longitude != nil) ) %>
